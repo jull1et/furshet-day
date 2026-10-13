@@ -1,0 +1,580 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Furshet Day: фуршеты и кофе-брейки в Астане</title>
+<meta name="description" content="Фуршеты и кофе-брейки в Астане. Выберите закуски и напитки в меню, укажите дату и число гостей. Стоимость обсудим в WhatsApp.">
+<meta name="theme-color" content="#fbf9f8">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Furshet Day: фуршеты и кофе-брейки в Астане">
+<meta property="og:description" content="Выберите закуски и напитки, укажите дату и число гостей. Заявка уйдёт в WhatsApp.">
+<meta property="og:image" content="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/og.jpg">
+<meta property="og:url" content="https://jull1et.github.io/furshet-day/">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%23d63a25%27/%3E%3C/svg%3E">
+<meta name="robots" content="noindex, nofollow">
+<link rel="preload" as="image" media="(max-width:859px)" imagesrcset="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/hero-480.webp 480w, https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/hero-750.webp 750w, https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/hero-1000.webp 1000w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" media="(min-width:860px)" href="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/hero-1400.webp" fetchpriority="high">
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+@font-face{font-family:"Onest";font-weight:400 800;font-style:normal;font-display:swap;src:url(https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/fonts/onest-cyrillic.woff2) format("woff2"),url(fonts/onest-cyrillic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Onest";font-weight:400 800;font-style:normal;font-display:swap;src:url(https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/fonts/onest-latin.woff2) format("woff2"),url(fonts/onest-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Unbounded";font-weight:500 800;font-style:normal;font-display:swap;src:url(https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/fonts/unbounded-cyrillic.woff2) format("woff2"),url(fonts/unbounded-cyrillic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Unbounded";font-weight:500 800;font-style:normal;font-display:swap;src:url(https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/fonts/unbounded-latin.woff2) format("woff2"),url(fonts/unbounded-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+:root{
+  /* Tomato + warm white + ink. One accent, one theme (light). */
+  --bg:#fbf9f8; --tint:#f4ebe7; --card:#ffffff;
+  --ink:#241d1e; --muted:#6a6062; --line:rgba(36,29,30,.13); --line2:rgba(36,29,30,.28);
+  --acc:#d63a25; --acc-hi:#bd2f1c; --on-acc:#ffffff; --err:#b3261e;
+  --r:14px; --pad:20px;
+  --disp:"Unbounded","Onest",system-ui,sans-serif;
+  color-scheme:light;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%}
+@media (prefers-reduced-motion:no-preference){html{scroll-behavior:smooth}}
+body{background:var(--bg);color:var(--ink);font:400 17px/1.5 "Onest",system-ui,-apple-system,"Segoe UI",sans-serif;-webkit-font-smoothing:antialiased;padding-bottom:calc(84px + env(safe-area-inset-bottom))}
+img{display:block;max-width:100%}
+button,input,textarea{font:inherit;color:inherit}
+a{color:inherit}
+.i{width:1.25em;height:1.25em;fill:currentColor;flex:none}
+.wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 var(--pad)}
+h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-.025em;line-height:1.1}
+h2{font-size:clamp(25px,6.2vw,42px)}
+.lead{color:var(--muted);max-width:56ch;margin-top:14px}
+section{padding:68px 0}
+:focus-visible{outline:3px solid var(--acc);outline-offset:3px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:var(--r);border:1px solid transparent;font-weight:600;text-decoration:none;cursor:pointer;white-space:nowrap;transition:transform .18s cubic-bezier(.16,1,.3,1),background .2s,border-color .2s}
+.btn:active{transform:scale(.98) translateY(1px)}
+.btn-acc{background:var(--acc);color:var(--on-acc)}
+.btn-acc:hover{background:var(--acc-hi)}
+.btn-ghost{border-color:rgba(255,255,255,.55);background:rgba(36,29,30,.28);color:#fff;backdrop-filter:blur(8px)}
+.btn-ghost:hover{border-color:#fff}
+
+.demo{background:var(--ink);color:#fff;text-align:center;font-size:13.5px;line-height:40px;height:40px;white-space:nowrap;overflow:hidden;padding:0 12px}
+.demo .d-l{display:none}
+/* header + hero (text over photo is always white, scrim guarantees contrast) */
+.top{position:absolute;inset:0 0 auto 0;z-index:5;padding:max(14px,env(safe-area-inset-top)) 0 0;color:#fff}
+.top .wrap{display:flex;align-items:center;justify-content:space-between}
+.logo{font-family:var(--disp);font-weight:700;letter-spacing:-.02em;font-size:15px;text-decoration:none;line-height:1.15}
+.logo small{display:block;font-family:"Onest",sans-serif;font-weight:500;font-size:13px;opacity:.85;letter-spacing:0;margin-top:3px}
+.wa-ico{display:grid;place-items:center;width:48px;height:48px;border-radius:var(--r);border:1px solid rgba(255,255,255,.5);background:rgba(36,29,30,.3);backdrop-filter:blur(8px);color:#fff}
+.hero{background-size:cover;background-position:50% 32%;position:relative;min-height:var(--hh,calc(100svh - 40px));display:flex;align-items:flex-end;padding:96px 0 44px;isolation:isolate;color:#fff}
+.hero picture{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.hero picture img{width:100%;height:100%;object-fit:cover;object-position:50% 32%}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(36,20,18,.55) 0%,rgba(36,20,18,.05) 26%,rgba(36,20,18,.55) 58%,rgba(24,14,13,.92) 100%)}
+.hero h1{font-size:clamp(30px,8.4vw,68px);max-width:15ch;line-height:1.06}
+.hero p{margin-top:18px;max-width:34ch;font-size:18px;color:rgba(255,255,255,.92)}
+.hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+
+/* stats band */
+.stats{padding:0;background:var(--acc);color:var(--on-acc)}
+.stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-block:30px}
+.stat b{display:block;font-family:var(--disp);font-size:clamp(21px,5.8vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1}
+.stat span{display:block;margin-top:10px;font-size:14.5px;line-height:1.3;opacity:.95}
+
+/* included */
+.incl-grid{display:grid;gap:22px;margin-top:34px}
+.incl{list-style:none;display:grid;gap:14px}
+.incl li{display:flex;gap:16px;align-items:flex-start;padding:18px;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
+.incl .ic{width:48px;height:48px;border-radius:var(--r);background:var(--tint);color:var(--acc);display:grid;place-items:center;flex:none}
+.incl .ic .i{width:26px;height:26px}
+.incl strong{display:block;font-weight:700;line-height:1.25}
+.incl span{color:var(--muted);font-size:15.5px;display:block;margin-top:3px}
+.extra{background:var(--ink);color:#fff;border-radius:var(--r);padding:26px;align-self:start}
+.extra h3{font-size:20px}
+.extra p{color:rgba(255,255,255,.78);margin-top:10px;font-size:15.5px}
+.extra ul{list-style:none;margin-top:18px;display:grid;gap:12px}
+.extra li{display:flex;align-items:center;gap:12px;font-weight:600;padding:14px;border:1px solid rgba(255,255,255,.2);border-radius:var(--r)}
+.extra .i{color:#ff8a76;width:24px;height:24px}
+
+/* menu */
+.menu{background:var(--tint)}
+.mb{background-size:cover;background-position:center;position:relative;margin-top:28px;border-radius:var(--r);overflow:hidden;aspect-ratio:16/8;background-color:var(--ink)}
+.mb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tabs{display:flex;gap:8px;margin-top:16px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
+.tabs::-webkit-scrollbar{display:none}
+.tab{min-height:48px;padding:0 20px;border-radius:var(--r);border:1px solid var(--line2);background:transparent;font-weight:600;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+.tab[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tab small{font-weight:500;opacity:.75}
+.dishes{list-style:none;margin-top:10px;display:grid;grid-template-columns:1fr;column-gap:36px}
+.dish{display:flex;align-items:center;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}
+.dish .t{flex:1;min-width:0}
+.dish .n{font-weight:600;line-height:1.25}
+.dish .d{color:var(--muted);font-size:14.5px;line-height:1.35;margin-top:3px}
+.add{width:48px;height:48px;flex:none;border-radius:var(--r);border:1px solid var(--line2);background:var(--card);display:grid;place-items:center;cursor:pointer;transition:background .2s,transform .15s}
+.add:active{transform:scale(.94)}
+.add[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
+.add:hover{border-color:var(--ink)}
+.add .i{width:22px;height:22px}
+.add .ck{display:none}.add[aria-pressed=true] .pl{display:none}.add[aria-pressed=true] .ck{display:block}
+.menu-note{margin-top:22px;color:var(--muted);font-size:15px}
+
+/* gallery */
+.shots{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
+.shots figure{border-radius:var(--r);overflow:hidden;background:var(--tint) center/cover;aspect-ratio:1/1}
+.shots figure:first-child{grid-column:1/-1;aspect-ratio:16/10}
+.shots img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.16,1,.3,1)}
+.shots figure:hover img{transform:scale(1.05)}
+.shots-note{margin-top:14px;color:var(--muted);font-size:14.5px}
+
+/* process */
+.steps{list-style:none;margin-top:34px;display:grid;gap:0;position:relative}
+.steps li{display:grid;grid-template-columns:52px 1fr;gap:16px;padding-bottom:30px;position:relative}
+.steps li:not(:last-child)::before{content:"";position:absolute;left:25px;top:56px;bottom:4px;width:2px;background:var(--line)}
+.steps .ic{width:52px;height:52px;border-radius:var(--r);background:var(--acc);display:grid;place-items:center;color:var(--on-acc)}
+.steps h3{font-size:16.5px;letter-spacing:-.01em;line-height:1.25;padding-top:4px}
+.steps p{color:var(--muted);font-size:15.5px;margin-top:6px}
+
+/* order */
+.order{background:var(--tint)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;margin-top:30px;box-shadow:0 18px 40px -24px rgba(120,40,25,.28)}
+.field{display:grid;gap:8px;margin-bottom:18px}
+.field>label,.field>.lab{font-weight:600;font-size:15px}
+.field .help{color:var(--muted);font-size:14px}
+.row2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:12px}
+.row2 .field{min-width:0}
+.pick{position:relative;min-width:0}
+.pick input{display:block;width:100%;min-width:0;max-width:100%;-webkit-appearance:none;appearance:none;text-align:left}
+.pick .ph{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#6f6466;pointer-events:none;font-size:16px}
+.pick.has .ph{display:none}
+.pick:not(.has) input::-webkit-datetime-edit{color:transparent}
+.pick:not(.has) input::-webkit-datetime-edit-fields-wrapper{color:transparent}
+input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and-time-value{text-align:left;min-height:1.2em}
+input[type=text],input[type=date],input[type=time],textarea{width:100%;min-height:52px;padding:12px 14px;border-radius:var(--r);border:1px solid var(--line2);background:#fff;font-size:16px;color:var(--ink)}
+textarea{min-height:96px;resize:vertical}
+input::placeholder,textarea::placeholder{color:#7a6f71}
+input:focus,textarea:focus{outline:3px solid rgba(214,58,37,.35);outline-offset:0;border-color:var(--acc)}
+.err{border-color:var(--err)!important}
+.errt{color:var(--err);font-size:14px}
+.step{display:flex;align-items:center;gap:8px}
+.step button{width:52px;height:52px;border-radius:var(--r);border:1px solid var(--line2);background:#fff;cursor:pointer;display:grid;place-items:center}
+.step input{text-align:center;font-weight:700;font-size:20px;min-height:52px;width:92px;border-radius:var(--r);border:1px solid var(--line2);background:#fff}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:48px;padding:0 16px;border-radius:var(--r);border:1px solid var(--line2);background:#fff;cursor:pointer;font-weight:500}
+.chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:600}
+.chk{display:flex;align-items:flex-start;gap:12px;padding:14px;border:1px solid var(--line2);border-radius:var(--r);cursor:pointer;background:#fff}
+.chk input{width:22px;height:22px;margin-top:2px;accent-color:var(--acc);flex:none}
+.chk b{display:block;font-weight:600}
+.chk span{color:var(--muted);font-size:14.5px}
+.picked{background:var(--tint);border-radius:var(--r);padding:14px;font-size:15px;color:var(--muted)}
+.picked b{color:var(--ink)}
+.send{width:100%;margin-top:6px}
+.fine{color:var(--muted);font-size:14px;margin-top:14px}
+.copy{width:100%;margin-top:10px;background:#fff;border:1px solid var(--line2);color:var(--ink);min-height:48px;border-radius:var(--r);cursor:pointer;font-weight:500}
+
+/* footer */
+.foot{padding:52px 0 36px;border-top:1px solid var(--line)}
+.foot .wrap{display:grid;gap:24px}
+.foot h3{font-size:18px}
+.foot p{color:var(--muted);font-size:15.5px;margin-top:8px}
+.cont{display:grid;gap:6px}
+.cont a{display:flex;align-items:center;gap:12px;color:var(--ink);text-decoration:none;min-height:46px;font-weight:500}
+.cont .i{color:var(--acc)}
+.telx{display:flex;align-items:center;gap:12px;min-height:46px;font-weight:500}
+
+/* sticky bar */
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));background:rgba(251,249,248,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;gap:12px;align-items:center;justify-content:center;transform:translateY(110%);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.bar.on{transform:none}
+.bar .btn{flex:1;max-width:420px}
+.bar .cnt{font-size:14px;color:var(--muted);line-height:1.2;min-width:68px}
+.bar .cnt b{display:block;color:var(--ink);font-size:17px}
+.toast{position:fixed;left:50%;bottom:calc(96px + env(safe-area-inset-bottom));transform:translate(-50%,20px);background:var(--ink);color:#fff;padding:12px 18px;border-radius:var(--r);font-weight:600;font-size:15px;opacity:0;pointer-events:none;transition:.3s;z-index:30;max-width:90vw;text-align:center}
+.toast.show{opacity:1;transform:translate(-50%,0)}
+
+@media (prefers-reduced-motion:no-preference){
+  .rv{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.16,1,.3,1),transform .7s cubic-bezier(.16,1,.3,1)}
+  .rv.in{opacity:1;transform:none}
+  .hero h1,.hero p,.hero .acts{animation:up .9s cubic-bezier(.16,1,.3,1) both}
+  .hero p{animation-delay:.1s}.hero .acts{animation-delay:.2s}
+  @keyframes up{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+}
+
+@media (min-width:860px){
+  .demo .d-s{display:none}.demo .d-l{display:inline}
+  :root{--pad:32px}
+  section{padding:104px 0}
+  body{padding-bottom:0}
+  .hero{padding-bottom:80px}
+  .hero picture img{object-position:50% 28%}
+  .incl-grid{grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
+  .mb{aspect-ratio:16/6}
+  .dishes{grid-template-columns:1fr 1fr}
+  .shots{grid-template-columns:repeat(4,1fr);gap:12px}
+  .shots figure:first-child{grid-column:1/3;grid-row:1/3;aspect-ratio:auto}
+  .steps{grid-template-columns:repeat(4,1fr);gap:24px}
+  .steps li{grid-template-columns:1fr;padding-bottom:0}
+  .steps li:not(:last-child)::before{left:64px;right:-24px;top:25px;bottom:auto;width:auto;height:2px}
+  .ord-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:start}
+  .ord-grid .card{margin-top:0}
+  .foot .wrap{grid-template-columns:1.2fr 1fr;align-items:start}
+  .bar{left:auto;right:24px;bottom:24px;border:1px solid var(--line);border-radius:var(--r);padding:10px;transform:translateY(calc(100% + 40px))}
+  .bar .btn{min-width:240px}
+  .toast{bottom:32px}
+}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="basket" viewBox="0 0 256 256"><path d="M136,120v56a8,8,0,0,1-16,0V120a8,8,0,0,1,16,0Zm36.84-.8-5.6,56A8,8,0,0,0,174.4,184a7.32,7.32,0,0,0,.81,0,8,8,0,0,0,7.95-7.2l5.6-56a8,8,0,0,0-15.92-1.6Zm-89.68,0a8,8,0,0,0-15.92,1.6l5.6,56a8,8,0,0,0,8,7.2,7.32,7.32,0,0,0,.81,0,8,8,0,0,0,7.16-8.76ZM239.93,89.06,224.86,202.12A16.06,16.06,0,0,1,209,216H47a16.06,16.06,0,0,1-15.86-13.88L16.07,89.06A8,8,0,0,1,24,80H68.37L122,18.73a8,8,0,0,1,12,0L187.63,80H232a8,8,0,0,1,7.93,9.06ZM89.63,80h76.74L128,36.15ZM222.86,96H33.14L47,200H209Z"/></symbol><symbol id="bell-simple" viewBox="0 0 256 256"><path d="M168,224a8,8,0,0,1-8,8H96a8,8,0,1,1,0-16h64A8,8,0,0,1,168,224Zm53.85-32A15.8,15.8,0,0,1,208,200H48a16,16,0,0,1-13.8-24.06C39.75,166.38,48,139.34,48,104a80,80,0,1,1,160,0c0,35.33,8.26,62.38,13.81,71.94A15.89,15.89,0,0,1,221.84,192ZM208,184c-7.73-13.27-16-43.95-16-80a64,64,0,1,0-128,0c0,36.06-8.28,66.74-16,80Z"/></symbol><symbol id="calendar-blank" viewBox="0 0 256 256"><path d="M208,32H184V24a8,8,0,0,0-16,0v8H88V24a8,8,0,0,0-16,0v8H48A16,16,0,0,0,32,48V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V48A16,16,0,0,0,208,32ZM72,48v8a8,8,0,0,0,16,0V48h80v8a8,8,0,0,0,16,0V48h24V80H48V48ZM208,208H48V96H208V208Z"/></symbol><symbol id="check" viewBox="0 0 256 256"><path d="M229.66,77.66l-128,128a8,8,0,0,1-11.32,0l-56-56a8,8,0,0,1,11.32-11.32L96,188.69,218.34,66.34a8,8,0,0,1,11.32,11.32Z"/></symbol><symbol id="fork-knife" viewBox="0 0 256 256"><path d="M72,88V40a8,8,0,0,1,16,0V88a8,8,0,0,1-16,0ZM216,40V224a8,8,0,0,1-16,0V176H152a8,8,0,0,1-8-8,268.75,268.75,0,0,1,7.22-56.88c9.78-40.49,28.32-67.63,53.63-78.47A8,8,0,0,1,216,40ZM200,53.9c-32.17,24.57-38.47,84.42-39.7,106.1H200ZM119.89,38.69a8,8,0,1,0-15.78,2.63L112,88.63a32,32,0,0,1-64,0l7.88-47.31a8,8,0,1,0-15.78-2.63l-8,48A8.17,8.17,0,0,0,32,88a48.07,48.07,0,0,0,40,47.32V224a8,8,0,0,0,16,0V135.32A48.07,48.07,0,0,0,128,88a8.17,8.17,0,0,0-.11-1.31Z"/></symbol><symbol id="hand-heart" viewBox="0 0 256 256"><path d="M230.33,141.06a24.34,24.34,0,0,0-18.61-4.77C230.5,117.33,240,98.48,240,80c0-26.47-21.29-48-47.46-48A47.58,47.58,0,0,0,156,48.75,47.58,47.58,0,0,0,119.46,32C93.29,32,72,53.53,72,80c0,11,3.24,21.69,10.06,33a31.87,31.87,0,0,0-14.75,8.4L44.69,144H16A16,16,0,0,0,0,160v40a16,16,0,0,0,16,16H120a7.93,7.93,0,0,0,1.94-.24l64-16a6.94,6.94,0,0,0,1.19-.4L226,182.82l.44-.2a24.6,24.6,0,0,0,3.93-41.56ZM119.46,48A31.15,31.15,0,0,1,148.6,67a8,8,0,0,0,14.8,0,31.15,31.15,0,0,1,29.14-19C209.59,48,224,62.65,224,80c0,19.51-15.79,41.58-45.66,63.9l-11.09,2.55A28,28,0,0,0,140,112H100.68C92.05,100.36,88,90.12,88,80,88,62.65,102.41,48,119.46,48ZM16,160H40v40H16Zm203.43,8.21-38,16.18L119,200H56V155.31l22.63-22.62A15.86,15.86,0,0,1,89.94,128H140a12,12,0,0,1,0,24H112a8,8,0,0,0,0,16h32a8.32,8.32,0,0,0,1.79-.2l67-15.41.31-.08a8.6,8.6,0,0,1,6.3,15.9Z"/></symbol><symbol id="knife" viewBox="0 0 256 256"><path d="M231.87,32.13a27.84,27.84,0,0,0-39.32,0L18.34,206.4a8,8,0,0,0,3.86,13.45A160.67,160.67,0,0,0,58.4,224c32.95,0,65.92-10.2,96.95-30.23,31.76-20.5,50.19-43.82,51-44.81a8,8,0,0,0-.64-10.59L185.32,118l46.55-46.56A27.85,27.85,0,0,0,231.87,32.13ZM189.1,144.44a220.41,220.41,0,0,1-42.86,36.16c-34.43,22.1-69.94,30.92-105.77,26.3L146,101.33Zm31.46-84.3L174,106.7,157.32,90l46.55-46.56a11.8,11.8,0,0,1,16.69,16.69Z"/></symbol><symbol id="map-pin" viewBox="0 0 256 256"><path d="M128,64a40,40,0,1,0,40,40A40,40,0,0,0,128,64Zm0,64a24,24,0,1,1,24-24A24,24,0,0,1,128,128Zm0-112a88.1,88.1,0,0,0-88,88c0,31.4,14.51,64.68,42,96.25a254.19,254.19,0,0,0,41.45,38.3,8,8,0,0,0,9.18,0A254.19,254.19,0,0,0,174,200.25c27.45-31.57,42-64.85,42-96.25A88.1,88.1,0,0,0,128,16Zm0,206c-16.53-13-72-60.75-72-118a72,72,0,0,1,144,0C200,161.23,144.53,209,128,222Z"/></symbol><symbol id="minus" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H40a8,8,0,0,1,0-16H216A8,8,0,0,1,224,128Z"/></symbol><symbol id="phone" viewBox="0 0 256 256"><path d="M222.37,158.46l-47.11-21.11-.13-.06a16,16,0,0,0-15.17,1.4,8.12,8.12,0,0,0-.75.56L134.87,160c-15.42-7.49-31.34-23.29-38.83-38.51l20.78-24.71c.2-.25.39-.5.57-.77a16,16,0,0,0,1.32-15.06l0-.12L97.54,33.64a16,16,0,0,0-16.62-9.52A56.26,56.26,0,0,0,32,80c0,79.4,64.6,144,144,144a56.26,56.26,0,0,0,55.88-48.92A16,16,0,0,0,222.37,158.46ZM176,208A128.14,128.14,0,0,1,48,80,40.2,40.2,0,0,1,82.87,40a.61.61,0,0,0,0,.12l21,47L83.2,111.86a6.13,6.13,0,0,0-.57.77,16,16,0,0,0-1,15.7c9.06,18.53,27.73,37.06,46.46,46.11a16,16,0,0,0,15.75-1.14,8.44,8.44,0,0,0,.74-.56L168.89,152l47,21.05h0s.08,0,.11,0A40.21,40.21,0,0,1,176,208Z"/></symbol><symbol id="plus" viewBox="0 0 256 256"><path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/></symbol><symbol id="sparkle" viewBox="0 0 256 256"><path d="M197.58,129.06,146,110l-19-51.62a15.92,15.92,0,0,0-29.88,0L78,110l-51.62,19a15.92,15.92,0,0,0,0,29.88L78,178l19,51.62a15.92,15.92,0,0,0,29.88,0L146,178l51.62-19a15.92,15.92,0,0,0,0-29.88ZM137,164.22a8,8,0,0,0-4.74,4.74L112,223.85,91.78,169A8,8,0,0,0,87,164.22L32.15,144,87,123.78A8,8,0,0,0,91.78,119L112,64.15,132.22,119a8,8,0,0,0,4.74,4.74L191.85,144ZM144,40a8,8,0,0,1,8-8h16V16a8,8,0,0,1,16,0V32h16a8,8,0,0,1,0,16H184V64a8,8,0,0,1-16,0V48H152A8,8,0,0,1,144,40ZM248,88a8,8,0,0,1-8,8h-8v8a8,8,0,0,1-16,0V96h-8a8,8,0,0,1,0-16h8V72a8,8,0,0,1,16,0v8h8A8,8,0,0,1,248,88Z"/></symbol><symbol id="whatsapp-logo" viewBox="0 0 256 256"><path d="M187.58,144.84l-32-16a8,8,0,0,0-8,.5l-14.69,9.8a40.55,40.55,0,0,1-16-16l9.8-14.69a8,8,0,0,0,.5-8l-16-32A8,8,0,0,0,104,64a40,40,0,0,0-40,40,88.1,88.1,0,0,0,88,88,40,40,0,0,0,40-40A8,8,0,0,0,187.58,144.84ZM152,176a72.08,72.08,0,0,1-72-72A24,24,0,0,1,99.29,80.46l11.48,23L101,118a8,8,0,0,0-.73,7.51,56.47,56.47,0,0,0,30.15,30.15A8,8,0,0,0,138,155l14.61-9.74,23,11.48A24,24,0,0,1,152,176ZM128,24A104,104,0,0,0,36.18,176.88L24.83,210.93a16,16,0,0,0,20.24,20.24l34.05-11.35A104,104,0,1,0,128,24Zm0,192a87.87,87.87,0,0,1-44.06-11.81,8,8,0,0,0-6.54-.67L40,216,52.47,178.6a8,8,0,0,0-.66-6.54A88,88,0,1,1,128,216Z"/></symbol></svg>
+
+
+<div class="demo" role="note"><span class="d-s">Макет сайта. Создан Юлией Устьянцевой</span><span class="d-l">Макет сайта. Создан Юлией Устьянцевой</span></div>
+
+<main id="top">
+<section class="hero" style="background-image:url(data:image/webp;base64,UklGRlABAABXRUJQVlA4IEQBAAAQBwCdASocACoAPwF2slOrJySipWsxYCAJbACuT0RvmHgkLXLU+iZGTSLt22NUC8bXZsYBgvb/wvq5vwUVlwGPgAD+9K6/VjSYKbCoft/MTMuAk9nOWMZQswvsTFjCSX5tKK6fJw/vW0kKYeYsrnX58j1cwnYqfuJ6dSWUNXrpyj/LTaelFNPT+rUUU/ptQoF2nCjoCZ1o1LZIPk45mhHXdwTr8kxUe0C+y4pnRTT4G8kWHS5nKxqFgW4sLSHTa5IUuRd44cM3kWy2kIZEMKPbOJz/jBZxfz+J93xp2SnhrwL3lQAUXcF2246kdP3gF5lvPJ9wBGjDWhNdBJnJNyJxA+VfbBlDZzRzSfTPdEYJvqxXqFBjNcizTFp4lmsbO6sSkZY8YpjBfJwGwTuOiKd/mi7wxgAv9w0Lolt2+Wh1Qb8AAAA=)">
+  <header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top">Furshet Day<small>кейтеринг в Астане</small></a>
+    <a class="wa-ico" href="https://api.whatsapp.com/send?phone=77017591615" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg class="i"><use href="#whatsapp-logo"/></svg></a>
+  </div>
+</header>
+  <picture><source media="(min-width:860px)" srcset="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/hero-1400.webp"><img src="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/hero-750.webp" srcset="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/hero-480.webp 480w, https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/hero-750.webp 750w, https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/hero-1000.webp 1000w" sizes="100vw" alt="Брускетты с мясом, томатами и зеленью на деревянной доске" fetchpriority="high" decoding="async" width="1000" height="1334"></picture>
+  <div class="wrap">
+    <h1>Фуршет под ключ в&nbsp;Астане</h1>
+    <p>Фуршеты и кофе-брейки. Выберите закуски, укажите дату и число гостей, стоимость назовём в WhatsApp.</p>
+    <div class="acts">
+      <a class="btn btn-acc" href="#order">Рассчитать стоимость</a>
+      <a class="btn btn-ghost" href="#menu">Смотреть меню</a>
+    </div>
+  </div>
+</section>
+
+<section id="incl">
+  <div class="wrap">
+    <h2 class="rv">Вы выбираете меню, остальное на нас</h2>
+    <p class="lead rv">Айнура сама организует каждое мероприятие: от закупки продуктов до подачи на стол.</p>
+    <div class="incl-grid">
+      <ul class="incl rv">
+        <li><div class="ic"><svg class="i"><use href="#basket"/></svg></div><div><strong>Свежие продукты</strong><span>Закупаем сами под ваш заказ</span></div></li>
+        <li><div class="ic"><svg class="i"><use href="#hand-heart"/></svg></div><div><strong>Один человек отвечает за всё</strong><span>Ваш заказ от заявки до подачи ведёт один повар</span></div></li>
+        <li><div class="ic"><svg class="i"><use href="#sparkle"/></svg></div><div><strong>Вкус и подача</strong><span>Следим, чтобы на столе было вкусно и красиво</span></div></li>
+      </ul>
+      <div class="extra rv">
+        <h3>Также можно заказать</h3>
+        <p>Отметьте в заявке, и повар добавит это в расчёт.</p>
+        <ul>
+          <li><svg class="i"><use href="#fork-knife"/></svg>Аренда посуды</li>
+          <li><svg class="i"><use href="#knife"/></svg>Выездной шеф-повар</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="menu" id="menu">
+  <div class="wrap">
+    <h2 class="rv">Меню</h2>
+    <p class="lead rv">Нажмите на плюс у позиций, которые хотите видеть на столе. Они попадут в заявку, окончательный набор согласуем в WhatsApp.</p>
+    <div class="mb" style="background-image:url(data:image/webp;base64,UklGRtQAAABXRUJQVlA4IMgAAAAQBACdASocAA4APwFqrU8rJiQiMAgBYCAJbACdLwCfNwHBqpWMaVdhIAD+jhjPtuCS9FAbLpOKDGawyiDffH9Wvnbxy1ROqJ+0F9CYSjWCn29ZkuRtpNaFJNPhrxcdXj5mbMae37L1YRxdGjk3erZrhwjZPMNVfqzGunkfkgZGr+fghnRaek/v37tufgpqbwriKHhrBM17vAdyZ/c1whqAagnavjFXGrwIuDISUQ+20XzbeibndDVupauUr+a5FfFlHUmGKAAAAA==)"><img src="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/banner-960.webp" srcset="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/banner-480.webp 480w, https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/banner-960.webp 960w" sizes="(min-width:860px) 1056px, 100vw" alt="Канапе с томатами и базиликом на белых блюдах" width="960" height="480" loading="lazy" decoding="async"></div>
+    <div class="tabs" role="group" id="tabs" aria-label="Разделы меню"></div>
+    <ul class="dishes" id="dishes"></ul>
+    <p class="menu-note">Нужной позиции нет в списке? Напишите в комментарии к заявке.</p>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <h2 class="rv">Так может выглядеть ваш стол</h2>
+    <p class="lead rv">Фуршетные линии, канапе и закуски. Подачу подбираем под ваш повод и площадку.</p>
+    <div class="shots rv">
+      <figure style="background-image:url(data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAACwBQCdASocABMAPwFsr1ErJaQisBgIAWAgCWoAnTLVP/gQRiznqkYH4UajqUwrSEBNYyQJQUAA/qhm0MVmNLF1MfMOqju9vU1NtaaFhsIr8qFpJJ+z1Y1m9dBTN8d0HoBB+ADRTiUNfOKvDmstmnLcq+DhA/zQyelEWe1YOSiRSZNQ34YVupz046XqgkWTb9kxSBmdmDNPj2Hjb4bZczbc0/GqPcvAAAA=)"><img src="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/table-1200.webp" srcset="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/table-480.webp 480w, https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/table-800.webp 800w, https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/table-1200.webp 1200w" sizes="(min-width:860px) 560px, 100vw" alt="Фуршетный стол с нарезками, закусками и десертами" loading="lazy" decoding="async" width="1200" height="800"></figure>
+      <figure style="background-image:url(data:image/webp;base64,UklGRuYAAABXRUJQVlA4INoAAAAQBgCdASocABQAPwFurlCrJiQisBgIAWAgCWQAtvshgYuw7tDbbTeiZ+IBwHTIqi4dx893Mk7UwbAA/BLNGIgPQIRwr8PRBuU28/xM2+I13cVLKtT99t9YCks5lnA+qStk+S7EkKB/RkKjFjgqcjWcwuQCL6uQ4I77e/hagVQ5FCfCOtMyQFS1q8DykNQaXBvO0pCs//UVeJpTShrnsGwMOBleoEOFz8h5tbwskRTETw3kWOvHq4PofL5FZeba3GzW/nhyMxI1/ZzXmJzFTyceXEYRI/+EuQsAAA==)"><img src="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/g-hall-600.webp" srcset="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/g-hall-360.webp 360w, https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/g-hall-600.webp 600w" sizes="(min-width:860px) 280px, 50vw" alt="Два фуршетных стола с подносами канапе в зале" loading="lazy" decoding="async" width="600" height="450"></figure>
+      <figure style="background-image:url(data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAACwBQCdASocABMAPwFysFIrJqSiqAqpYCAJbACdMoMrasUBvvUjECLvbq4V/3egvzszfSR5DuAA/sW2GLFLRHbTjWQNthWXJvjdO3qnyd0v8G38qXB9QdWR3C7b+FS6bvbgAS1XcR6f9mcTrw+2jgDK7b9uJMj6y5zhPJAykpbkW1fe+Bna+JHznD1NwAj/QE5C9uTkFiIEknvwdnFoCmMDvCVR30kp29SDa+KI6Rcetw0o1zGDE7aI2hc8xVG0qd1iEAAA)"><img src="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/g-canape-600.webp" srcset="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/g-canape-360.webp 360w, https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/g-canape-600.webp 600w" sizes="(min-width:860px) 280px, 50vw" alt="Блюда с канапе и тарталетками на фуршетном столе" loading="lazy" decoding="async" width="600" height="450"></figure>
+      <figure style="background-image:url(data:image/webp;base64,UklGRogBAABXRUJQVlA4IHwBAABQCACdASocACUAPv1kq06rJSOiNVgIAWAfiWwAqRyAYJRceMluXlgaYNosKGv4h/F9O60lpVhNdq64zfqYjlDYi5dNJAJaSgXjPAAA+/7iOMZvBnWrtKBYHWNMVCuwu6CWe9jHN8ZMHbhBH7pWhF1i481tTLXnZ4i+vlO+khFu70l0wgSxnjKCuDDcHRZbNnH48RevWh0aDFoOgblea9QbJPrZmvte1URH952IA2qYGbihuHjMY5FFrZpjmhXWWsEfPm+qJcZ0GYpakmNouBEtKwgrJT2DMzkqcBh2LMwvdHhIO/l3V892QexAf8Jz3PAAXUTa0XkreqL1NTvEE6fhfiIBTAfJi6z0zr4dLE5tiikcBGefP5ADUGlvxlBMbgwHlavbeooU5ixwoRMfvwNXTOrGHFhOQ9jd3E2z8vwSLaS6VEWjeauWyhGImEGYNYpUaw31/WFFL8lPIk+TjqZ6Wc4SMe1JKgb3zKTyJBdrBMZgUkf4mZYt+7oAAA==)"><img src="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/g-fetamelon-600.webp" srcset="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/g-fetamelon-360.webp 360w, https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/g-fetamelon-600.webp 600w" sizes="(min-width:860px) 280px, 50vw" alt="Канапе с арбузом, фетой и креветками на деревянной доске" loading="lazy" decoding="async" width="600" height="800"></figure>
+      <figure style="background-image:url(data:image/webp;base64,UklGRvYAAABXRUJQVlA4IOoAAADwBQCdASocABMAPwFqrE6rJiQiMAgBYCAJbACdMoM6NcAIIoX+v54TaZ2q1GUdv/i3QyEIlS/ngAD+7oLBf0E2XECI3EDRgnokGMu7lCFKhDdj2Pb+IlL09RnjdKSK5p7LRM8eH9DzxnkZ1YeRwFvhWCm7t8joP0wZb+gWKSCp8GdDRM2DFTirch1xp47daFzN4ohTov/omXtcbekS+JPeWLYQStHiR8VgHmxijT/rRSDxq2MhMVdBtTzpHQCjvjDi9xeyuZybqXzSm3zJy2lKaBHfceWoN3DuTgv1OgrSB9U0COUUxRsboAA=)"><img src="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/g-stand-600.webp" srcset="https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/g-stand-360.webp 360w, https://cdn.jsdelivr.net/gh/jull1et/furshet-day@a131ea13e70a1b4db4989ce7dd67b726bf924118/img/g-stand-600.webp 600w" sizes="(min-width:860px) 280px, 50vw" alt="Стенд с закусками в стаканчиках и канапе на фуршете" loading="lazy" decoding="async" width="600" height="450"></figure>
+    </div>
+    <p class="shots-note rv">Фото для примера.</p>
+  </div>
+</section>
+
+<section id="how">
+  <div class="wrap">
+    <h2 class="rv">Как проходит заказ</h2>
+    <ol class="steps">
+      <li class="rv"><div class="ic"><svg class="i"><use href="#calendar-blank"/></svg></div><div><h3>Вы оставляете заявку</h3><p>Дата, число гостей, формат и пожелания. Это пара минут.</p></div></li>
+      <li class="rv"><div class="ic"><svg class="i"><use href="#whatsapp-logo"/></svg></div><div><h3>Повар пишет вам в WhatsApp</h3><p>Уточняет детали и называет стоимость.</p></div></li>
+      <li class="rv"><div class="ic"><svg class="i"><use href="#fork-knife"/></svg></div><div><h3>Согласуете меню</h3><p>Меню собираем под ваш повод и число гостей.</p></div></li>
+      <li class="rv"><div class="ic"><svg class="i"><use href="#bell-simple"/></svg></div><div><h3>Готовим и накрываем стол</h3><p>Закупку продуктов, готовку и подачу берём на себя.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<section class="order" id="order">
+  <div class="wrap ord-grid">
+    <div>
+      <h2 class="rv">Расскажите о вашем мероприятии</h2>
+      <p class="lead rv">Стоимость зависит от меню, числа гостей, даты и места. Повар назовёт её в WhatsApp, когда получит вашу заявку.</p>
+    </div>
+    <form class="card rv" id="form" novalidate>
+      <div class="field">
+        <label for="fName">Ваше имя *</label>
+        <input id="fName" type="text" autocomplete="name" placeholder="Например, Айгерим" required>
+        <span class="errt" id="eName" hidden>Укажите имя</span>
+      </div>
+      <div class="row2">
+        <div class="field">
+          <label for="fDate">Дата *</label>
+          <div class="pick" id="pDate"><input id="fDate" type="date" required><span class="ph">дд.мм.гггг</span></div>
+          <span class="errt" id="eDate" hidden>Выберите дату</span>
+        </div>
+        <div class="field">
+          <label for="fTime">Время начала</label>
+          <div class="pick" id="pTime"><input id="fTime" type="time"><span class="ph">чч:мм</span></div>
+        </div>
+      </div>
+      <div class="field">
+        <span class="lab" id="gl">Сколько гостей</span>
+        <div class="step" role="group" aria-labelledby="gl">
+          <button type="button" id="gMinus" aria-label="Меньше гостей"><svg class="i"><use href="#minus"/></svg></button>
+          <input id="fGuests" type="text" inputmode="numeric" value="10" aria-label="Число гостей">
+          <button type="button" id="gPlus" aria-label="Больше гостей"><svg class="i"><use href="#plus"/></svg></button>
+        </div>
+        <span class="help" id="gHelp">Примерное число, точное можно уточнить позже</span>
+      </div>
+      <div class="field">
+        <span class="lab" id="fl">Формат</span>
+        <div class="chips" id="formats" role="group" aria-labelledby="fl"></div>
+      </div>
+      <div class="field">
+        <label for="fPlace">Где пройдёт</label>
+        <input id="fPlace" type="text" autocomplete="street-address" placeholder="Район или адрес">
+      </div>
+      <div class="field">
+        <span class="lab">Дополнительно</span>
+        <label class="chk"><input type="checkbox" id="fWait"><div><b>Нужна аренда посуды</b><span>Добавим в расчёт</span></div></label>
+        <label class="chk"><input type="checkbox" id="fWash"><div><b>Нужен выездной шеф-повар</b><span>Добавим в расчёт</span></div></label>
+      </div>
+      <div class="field">
+        <span class="lab">Выбрано из меню</span>
+        <div class="picked" id="picked"></div>
+      </div>
+      <div class="field">
+        <label for="fNote">Комментарий</label>
+        <textarea id="fNote" placeholder="Повод, пожелания, аллергии, что важно учесть"></textarea>
+      </div>
+      <a class="btn btn-acc send" id="send" href="https://api.whatsapp.com/send?phone=77017591615" target="_blank" rel="noopener"><svg class="i"><use href="#whatsapp-logo"/></svg>Отправить в WhatsApp</a>
+      <button class="copy" id="copy" type="button">Скопировать текст заявки</button>
+      <p class="fine">Заявка откроется в WhatsApp уже написанной. Вам останется нажать «отправить».</p>
+      <p class="fine demo-note">Это макет сайта. Заявка из макета придёт его автору, а не повару. После запуска сайта заявки будут приходить повару.</p>
+    </form>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div>
+      <h3>Furshet Day</h3>
+      <p>Фуршеты и кофе-брейки в Астане.</p>
+    </div>
+    <div class="cont">
+      <span class="telx"><svg class="i"><use href="#phone"/></svg>+7 776 036 69 66</span>
+      <a href="https://api.whatsapp.com/send?phone=77017591615" target="_blank" rel="noopener"><svg class="i"><use href="#whatsapp-logo"/></svg>Написать в WhatsApp</a>
+      <a href="#top" style="pointer-events:none"><svg class="i"><use href="#map-pin"/></svg>Астана</a>
+    </div>
+  </div>
+</footer>
+
+<div class="bar" id="bar">
+  <div class="cnt" id="cnt" hidden>Выбрано<b id="cntN">0</b></div>
+  <a class="btn btn-acc" href="#order">Рассчитать стоимость</a>
+</div>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+const PHONE = "77017591615";  // куда уходят заявки (подставляет build.py)
+const MENU = [
+  {
+    "id": "snack",
+    "title": "Закуски",
+    "items": [
+      [
+        "Мини-самса с мясом",
+        ""
+      ],
+      [
+        "Мини-круассаны с курицей",
+        ""
+      ],
+      [
+        "Брускетта капрезе",
+        ""
+      ],
+      [
+        "Канапе с мини-моцареллой",
+        ""
+      ]
+    ]
+  },
+  {
+    "id": "dessert",
+    "title": "Десерты",
+    "items": [
+      [
+        "Трайфл",
+        ""
+      ],
+      [
+        "Орешки",
+        ""
+      ]
+    ]
+  },
+  {
+    "id": "drink",
+    "title": "Напитки",
+    "items": [
+      [
+        "Чай",
+        ""
+      ],
+      [
+        "Кофе",
+        ""
+      ],
+      [
+        "Вода",
+        ""
+      ],
+      [
+        "Сахар, лимон, сливки",
+        "к чаю и кофе"
+      ]
+    ]
+  }
+];
+const FORMATS = ["Фуршет", "Кофе-брейк", "Корпоратив", "День рождения", "Другое"];
+const MIN_GUESTS = 10;
+
+const $ = s => document.querySelector(s);
+const ICON = id => `<svg class="i"><use href="#${id}"/></svg>`;
+const picked = new Set();
+let tab = MENU[0].id, format = "", guests = MIN_GUESTS;
+
+/* menu */
+function renderTabs() {
+  $("#tabs").innerHTML = MENU.map(c => {
+    const n = c.items.filter(i => picked.has(i[0])).length;
+    return `<button class="tab" type="button" data-t="${c.id}" aria-pressed="${c.id === tab}">${c.title}<small>${n ? n + " из " : ""}${c.items.length}</small></button>`;
+  }).join("");
+}
+function renderDishes() {
+  const c = MENU.find(x => x.id === tab);
+  $("#dishes").innerHTML = c.items.map(([n, d]) => `
+    <li class="dish">
+      <div class="t"><div class="n">${n}</div>${d ? `<div class="d">${d}</div>` : ""}</div>
+      <button class="add" type="button" data-n="${n.replace(/"/g, "&quot;")}" aria-pressed="${picked.has(n)}" aria-label="${picked.has(n) ? "Убрать из заявки" : "Добавить в заявку"}: ${n.replace(/"/g, "&quot;")}">${ICON("plus").replace('class="i"', 'class="i pl"')}${ICON("check").replace('class="i"', 'class="i ck"')}</button>
+    </li>`).join("");
+}
+$("#tabs").addEventListener("click", e => {
+  const b = e.target.closest(".tab"); if (!b) return;
+  tab = b.dataset.t; renderTabs(); renderDishes();
+  $("#tabs").querySelector('[aria-pressed=true]').scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
+});
+$("#dishes").addEventListener("click", e => {
+  const b = e.target.closest(".add"); if (!b) return;
+  const n = b.dataset.n;
+  picked.has(n) ? picked.delete(n) : picked.add(n);
+  b.setAttribute("aria-pressed", picked.has(n));
+  b.setAttribute("aria-label", (picked.has(n) ? "Убрать из заявки: " : "Добавить в заявку: ") + n);
+  renderTabs(); refresh();
+});
+
+/* form */
+$("#formats").innerHTML = FORMATS.map(f => `<button class="chip" type="button" aria-pressed="false">${f}</button>`).join("");
+$("#formats").addEventListener("click", e => {
+  const b = e.target.closest(".chip"); if (!b) return;
+  const on = b.getAttribute("aria-pressed") === "true";
+  document.querySelectorAll(".chip").forEach(x => x.setAttribute("aria-pressed", "false"));
+  b.setAttribute("aria-pressed", String(!on));
+  format = on ? "" : b.textContent; refresh();
+});
+const gIn = $("#fGuests");
+function setGuests(v) {
+  guests = Math.max(1, Math.min(999, parseInt(v, 10) || MIN_GUESTS));
+  gIn.value = guests;
+  refresh();
+}
+$("#gMinus").onclick = () => setGuests(guests - 1);
+$("#gPlus").onclick = () => setGuests(guests + 1);
+gIn.addEventListener("change", () => setGuests(gIn.value));
+{ const t = new Date(); $("#fDate").min = `${t.getFullYear()}-${String(t.getMonth() + 1).padStart(2, "0")}-${String(t.getDate()).padStart(2, "0")}`; }
+["fName", "fDate", "fTime", "fPlace", "fNote", "fWait", "fWash"].forEach(id => $("#" + id).addEventListener("input", refresh));
+["fDate", "fTime"].forEach(id => { const el = $("#" + id), box = el.parentElement; const sync = () => box.classList.toggle("has", !!el.value); el.addEventListener("input", sync); el.addEventListener("change", sync); sync(); });
+
+const fmtDate = v => { if (!v) return ""; const [y, m, d] = v.split("-"); return `${d}.${m}.${y}`; };
+function orderText() {
+  const name = $("#fName").value.trim(), date = fmtDate($("#fDate").value), time = $("#fTime").value;
+  const place = $("#fPlace").value.trim(), note = $("#fNote").value.trim();
+  const dishes = [...picked];
+  const L = ["*Заявка с макета сайта Furshet Day*", ""];
+  L.push(`Имя: ${name || "не указано"}`);
+  L.push(`Дата: ${date || "не указана"}${time ? `, начало в ${time}` : ""}`);
+  L.push(`Гостей: ${guests}`);
+  if (format) L.push(`Формат: ${format}`);
+  if (place) L.push(`Место: ${place}`);
+  L.push(`Аренда посуды: ${$("#fWait").checked ? "нужна" : "не нужна"}`);
+  L.push(`Выездной шеф-повар: ${$("#fWash").checked ? "нужен" : "не нужен"}`);
+  if (dishes.length) L.push("", `*Из меню (${dishes.length}):*`, ...dishes.map((d, i) => `${i + 1}) ${d}`)); else L.push("Меню: пока не выбрано, хочу обсудить");
+  if (note) L.push(`Комментарий: ${note}`);
+  L.push("", "Прошу рассчитать стоимость.");
+  return L.join("\n");
+}
+function refresh() {
+  $("#send").href = `https://api.whatsapp.com/send?phone=${PHONE}&text=${encodeURIComponent(orderText())}`;
+  const n = picked.size;
+  $("#picked").innerHTML = n ? `<b>Выбрано ${n}:</b> ${[...picked].join(", ")}` : "Пока ничего не выбрано. Отметьте позиции в меню выше или обсудите меню в WhatsApp.";
+  $("#cnt").hidden = !n; $("#cntN").textContent = n;
+}
+function check() {
+  const n = $("#fName"), d = $("#fDate");
+  const okN = !!n.value.trim(), okD = !!d.value;
+  n.classList.toggle("err", !okN); $("#eName").hidden = okN;
+  d.classList.toggle("err", !okD); $("#eDate").hidden = okD;
+  (!okN ? n : !okD ? d : null)?.focus();
+  return okN && okD;
+}
+$("#send").addEventListener("click", e => { if (!check()) { e.preventDefault(); toast("Заполните имя и дату"); } });
+function toast(t) {
+  const el = $("#toast"); el.textContent = t; el.classList.add("show");
+  clearTimeout(toast.t); toast.t = setTimeout(() => el.classList.remove("show"), 3200);
+}
+$("#copy").onclick = async () => {
+  if (!check()) { toast("Заполните имя и дату"); return; }
+  const t = orderText();
+  try { await navigator.clipboard.writeText(t); toast("Текст заявки скопирован"); }
+  catch { const a = document.createElement("textarea"); a.value = t; document.body.append(a); a.select(); document.execCommand("copy"); a.remove(); toast("Текст заявки скопирован"); }
+};
+
+/* sticky bar: show after hero, hide while the order form is on screen */
+const bar = $("#bar");
+let pastHero = false, formSeen = false;
+const upd = () => bar.classList.toggle("on", pastHero && !formSeen);
+new IntersectionObserver(([e]) => { pastHero = !e.isIntersecting; upd(); }, { threshold: 0.2 }).observe(document.querySelector(".hero"));
+new IntersectionObserver(([e]) => { formSeen = e.isIntersecting; upd(); }, { threshold: 0.15 }).observe($("#order"));
+
+/* reveal on scroll */
+const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } }), { threshold: 0.12 });
+document.querySelectorAll(".rv").forEach(el => io.observe(el));
+
+/* hero height is fixed once per width: mobile browser toolbars collapsing on scroll must not resize the photo */
+{ const hero = document.querySelector(".hero"); let lw = innerWidth;
+  const setH = () => hero.style.setProperty("--hh", Math.max(460, innerHeight - 40) + "px");
+  setH(); addEventListener("resize", () => { if (innerWidth !== lw) { lw = innerWidth; setH(); } }); }
+
+/* if the CDN is unreachable, fall back to the files next to the page */
+document.addEventListener("error", e => {
+  const i = e.target; if (i.tagName !== "IMG" || i.dataset.fb || !i.src.includes("cdn.jsdelivr.net")) return;
+  i.dataset.fb = 1; i.removeAttribute("srcset"); i.parentElement.querySelectorAll?.("source").forEach(x => x.remove());
+  i.src = i.src.replace(/^https:\/\/cdn\.jsdelivr\.net\/gh\/[^/]+\/[^/]+@[^/]+\//, "");
+}, true);
+
+renderTabs(); renderDishes(); refresh();
+</script>
+</body>
+</html>
