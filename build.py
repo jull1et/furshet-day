@@ -29,6 +29,13 @@ tokens = {
  'MENU_JSON': json.dumps(C['menu'], ensure_ascii=False, indent=2), 'FORMATS_JSON': json.dumps(C['formats'], ensure_ascii=False),
 }
 for i, a in enumerate(C['alt_gallery']): tokens[f'ALT_G{i}'] = a
+tokens['SERVICES'] = '\n'.join(f'      <li><b>{t}</b>' + (f'<span>{d}</span>' if d else '') + '</li>' for t, d in C['services'])
+gal = []
+for i, alt in enumerate(C['alt_gallery'], 1):
+    if i == 1: gal.append(f'      <figure <!--LQ:g1-->><img src="img/g1-1200.webp" srcset="img/g1-480.webp 480w, img/g1-800.webp 800w, img/g1-1200.webp 1200w" sizes="(min-width:860px) 560px, 100vw" alt="{alt}" loading="lazy" decoding="async" width="1200" height="1600"></figure>')
+    else: gal.append(f'      <figure <!--LQ:g{i}-->><img src="img/g{i}-600.webp" srcset="img/g{i}-360.webp 360w, img/g{i}-600.webp 600w" sizes="(min-width:860px) 280px, 50vw" alt="{alt}" loading="lazy" decoding="async" width="600" height="600"></figure>')
+tokens['GALLERY'] = '\n'.join(gal)
+tokens.update({'ABOUT_P1': C['about_p1'], 'ABOUT_P2': C['about_p2'], 'TIKTOK_URL': C['tiktok_url']})
 for k, v in tokens.items(): src = src.replace('{{' + k + '}}', v)
 left = re.findall(r'\{\{[A-Z_0-9]+\}\}', src)
 assert not left, f'не заполнены токены: {sorted(set(left))}'

@@ -5,7 +5,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{TITLE}}</title>
 <meta name="description" content="{{DESCRIPTION}}">
-<meta name="theme-color" content="#fbf9f8">
+<meta name="theme-color" content="#faf6ef">
+<link rel="canonical" href="{{SITE_URL}}">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{TITLE}}">
 <meta property="og:description" content="{{OG_DESCRIPTION}}">
@@ -14,10 +15,10 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%23d63a25%27/%3E%3C/svg%3E">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%237a1f2e%27/%3E%3C/svg%3E">
 <!--ROBOTS-->
-<link rel="preload" as="image" media="(max-width:859px)" imagesrcset="img/hero-480.webp 480w, img/hero-750.webp 750w, img/hero-1000.webp 1000w" imagesizes="100vw" fetchpriority="high">
-<link rel="preload" as="image" media="(min-width:860px)" href="img/hero-1400.webp" fetchpriority="high">
+<link rel="preload" as="image" media="(max-width:859px)" imagesrcset="img/hero-480.webp 480w, img/hero-750.webp 750w, img/hero-900.webp 900w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" media="(min-width:860px)" imagesrcset="img/hero-wide-1280.webp 1280w, img/hero-wide-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
 <link rel="preload" href="__CDN__fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="__CDN__fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
 <style>
@@ -26,10 +27,10 @@
 @font-face{font-family:"Unbounded";font-weight:500 800;font-style:normal;font-display:swap;src:url(__CDN__fonts/unbounded-cyrillic.woff2) format("woff2"),url(fonts/unbounded-cyrillic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:"Unbounded";font-weight:500 800;font-style:normal;font-display:swap;src:url(__CDN__fonts/unbounded-latin.woff2) format("woff2"),url(fonts/unbounded-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
 :root{
-  /* Tomato + warm white + ink. One accent, one theme (light). */
-  --bg:#fbf9f8; --tint:#f4ebe7; --card:#ffffff;
-  --ink:#241d1e; --muted:#6a6062; --line:rgba(36,29,30,.13); --line2:rgba(36,29,30,.28);
-  --acc:#d63a25; --acc-hi:#bd2f1c; --on-acc:#ffffff; --err:#b3261e;
+  /* Milk ivory + wine + ink. One accent, one theme (light). */
+  --bg:#faf6ef; --tint:#f2e9de; --card:#fffdf9;
+  --ink:#2b1d1f; --muted:#6f6062; --line:rgba(43,29,31,.13); --line2:rgba(43,29,31,.28);
+  --acc:#7a1f2e; --acc-hi:#621726; --on-acc:#ffffff; --err:#b3261e;
   --r:14px; --pad:20px;
   --disp:"Unbounded","Onest",system-ui,sans-serif;
   color-scheme:light;
@@ -56,15 +57,13 @@ section{padding:68px 0}
 .btn-ghost{border-color:rgba(255,255,255,.55);background:rgba(36,29,30,.28);color:#fff;backdrop-filter:blur(8px)}
 .btn-ghost:hover{border-color:#fff}
 
-.demo{background:var(--ink);color:#fff;text-align:center;font-size:13.5px;line-height:40px;height:40px;white-space:nowrap;overflow:hidden;padding:0 12px}
-.demo .d-l{display:none}
 /* header + hero (text over photo is always white, scrim guarantees contrast) */
 .top{position:absolute;inset:0 0 auto 0;z-index:5;padding:max(14px,env(safe-area-inset-top)) 0 0;color:#fff}
 .top .wrap{display:flex;align-items:center;justify-content:space-between}
 .logo{font-family:var(--disp);font-weight:700;letter-spacing:-.02em;font-size:15px;text-decoration:none;line-height:1.15}
 .logo small{display:block;font-family:"Onest",sans-serif;font-weight:500;font-size:13px;opacity:.85;letter-spacing:0;margin-top:3px}
 .wa-ico{display:grid;place-items:center;width:48px;height:48px;border-radius:var(--r);border:1px solid rgba(255,255,255,.5);background:rgba(36,29,30,.3);backdrop-filter:blur(8px);color:#fff}
-.hero{background-size:cover;background-position:50% 32%;position:relative;min-height:var(--hh,calc(100svh - 40px));display:flex;align-items:flex-end;padding:96px 0 44px;isolation:isolate;color:#fff}
+.hero{background-size:cover;background-position:50% 32%;position:relative;min-height:var(--hh,100svh);display:flex;align-items:flex-end;padding:96px 0 44px;isolation:isolate;color:#fff}
 .hero picture{position:absolute;inset:0;z-index:-2;overflow:hidden}
 .hero picture img{width:100%;height:100%;object-fit:cover;object-position:50% 32%}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(36,20,18,.55) 0%,rgba(36,20,18,.05) 26%,rgba(36,20,18,.55) 58%,rgba(24,14,13,.92) 100%)}
@@ -91,7 +90,7 @@ section{padding:68px 0}
 .extra p{color:rgba(255,255,255,.78);margin-top:10px;font-size:15.5px}
 .extra ul{list-style:none;margin-top:18px;display:grid;gap:12px}
 .extra li{display:flex;align-items:center;gap:12px;font-weight:600;padding:14px;border:1px solid rgba(255,255,255,.2);border-radius:var(--r)}
-.extra .i{color:#ff8a76;width:24px;height:24px}
+.extra .i{color:#e7b3bc;width:24px;height:24px}
 
 /* menu */
 .menu{background:var(--tint)}
@@ -114,6 +113,14 @@ section{padding:68px 0}
 .add .i{width:22px;height:22px}
 .add .ck{display:none}.add[aria-pressed=true] .pl{display:none}.add[aria-pressed=true] .ck{display:block}
 .menu-note{margin-top:22px;color:var(--muted);font-size:15px}
+.dish .ph{width:72px;height:72px;flex:none;border-radius:12px;overflow:hidden;border:0;padding:0;cursor:zoom-in;background:#e6d8c8}
+.dish .ph img{width:100%;height:100%;object-fit:cover;display:block}
+#lb{border:0;padding:0;background:transparent;margin:auto;max-width:min(92vw,720px);overflow:visible}
+#lb::backdrop{background:rgba(24,12,14,.82)}
+#lb img{display:block;max-width:100%;max-height:76vh;border-radius:var(--r);background:var(--tint)}
+#lb .lbr{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-top:12px;color:#fff}
+#lb p{font-weight:600}
+#lb button{min-height:44px;padding:0 18px;border-radius:var(--r);border:1px solid rgba(255,255,255,.5);background:transparent;color:#fff;font-weight:600;cursor:pointer}
 
 /* gallery */
 .shots{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:30px}
@@ -122,6 +129,18 @@ section{padding:68px 0}
 .shots img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.16,1,.3,1)}
 .shots figure:hover img{transform:scale(1.05)}
 .shots-note{margin-top:14px;color:var(--muted);font-size:14.5px}
+.svc{list-style:none;display:grid;gap:10px;margin-top:30px}
+.svc li{padding:16px 18px;background:var(--card);border:1px solid var(--line);border-left:3px solid var(--acc);border-radius:var(--r)}
+.svc b{display:block;font-weight:700;line-height:1.25}
+.svc span{display:block;color:var(--muted);font-size:15px;margin-top:3px}
+.about{background:var(--tint)}
+.about-grid{display:grid;gap:26px}
+.about figure{border-radius:var(--r);overflow:hidden;background:var(--card) center/cover;aspect-ratio:1/1;max-width:460px}
+.about figure img{width:100%;height:100%;object-fit:cover}
+.about p{color:var(--muted);margin-top:14px;max-width:56ch}
+.about .soc{display:flex;flex-wrap:wrap;gap:4px 24px;margin-top:16px}
+.about .ig{display:inline-flex;align-items:center;gap:12px;min-height:48px;font-weight:600;color:var(--ink);text-underline-offset:4px}
+.about .ig .i{color:var(--acc)}
 
 /* process */
 .steps{list-style:none;margin-top:34px;display:grid;gap:0;position:relative}
@@ -133,7 +152,7 @@ section{padding:68px 0}
 
 /* order */
 .order{background:var(--tint)}
-.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;margin-top:30px;box-shadow:0 18px 40px -24px rgba(120,40,25,.28)}
+.card{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;margin-top:30px;box-shadow:0 18px 40px -24px rgba(90,25,35,.25)}
 .field{display:grid;gap:8px;margin-bottom:18px}
 .field>label,.field>.lab{font-weight:600;font-size:15px}
 .field .help{color:var(--muted);font-size:14px}
@@ -149,7 +168,7 @@ input[type=date]::-webkit-date-and-time-value,input[type=time]::-webkit-date-and
 input[type=text],input[type=date],input[type=time],textarea{width:100%;min-height:52px;padding:12px 14px;border-radius:var(--r);border:1px solid var(--line2);background:#fff;font-size:16px;color:var(--ink)}
 textarea{min-height:96px;resize:vertical}
 input::placeholder,textarea::placeholder{color:#7a6f71}
-input:focus,textarea:focus{outline:3px solid rgba(214,58,37,.35);outline-offset:0;border-color:var(--acc)}
+input:focus,textarea:focus{outline:3px solid rgba(122,31,46,.3);outline-offset:0;border-color:var(--acc)}
 .err{border-color:var(--err)!important}
 .errt{color:var(--err);font-size:14px}
 .step{display:flex;align-items:center;gap:8px}
@@ -179,7 +198,7 @@ input:focus,textarea:focus{outline:3px solid rgba(214,58,37,.35);outline-offset:
 .telx{display:flex;align-items:center;gap:12px;min-height:46px;font-weight:500}
 
 /* sticky bar */
-.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));background:rgba(251,249,248,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;gap:12px;align-items:center;justify-content:center;transform:translateY(110%);transition:transform .35s cubic-bezier(.16,1,.3,1)}
+.bar{position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px var(--pad) calc(10px + env(safe-area-inset-bottom));background:rgba(250,246,239,.94);backdrop-filter:blur(10px);border-top:1px solid var(--line);display:flex;gap:12px;align-items:center;justify-content:center;transform:translateY(110%);transition:transform .35s cubic-bezier(.16,1,.3,1)}
 .bar.on{transform:none}
 .bar .btn{flex:1;max-width:420px}
 .bar .cnt{font-size:14px;color:var(--muted);line-height:1.2;min-width:68px}
@@ -196,17 +215,18 @@ input:focus,textarea:focus{outline:3px solid rgba(214,58,37,.35);outline-offset:
 }
 
 @media (min-width:860px){
-  .demo .d-s{display:none}.demo .d-l{display:inline}
   :root{--pad:32px}
   section{padding:104px 0}
   body{padding-bottom:0}
   .hero{padding-bottom:80px}
-  .hero picture img{object-position:50% 28%}
+  .hero picture img{object-position:50% 50%}
   .incl-grid{grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
   .mb{aspect-ratio:16/6}
   .dishes{grid-template-columns:1fr 1fr}
   .shots{grid-template-columns:repeat(4,1fr);gap:12px}
   .shots figure:first-child{grid-column:1/3;grid-row:1/3;aspect-ratio:auto}
+  .svc{grid-template-columns:1fr 1fr;gap:12px}
+  .about-grid{grid-template-columns:.8fr 1fr;gap:56px;align-items:center}
   .steps{grid-template-columns:repeat(4,1fr);gap:24px}
   .steps li{grid-template-columns:1fr;padding-bottom:0}
   .steps li:not(:last-child)::before{left:64px;right:-24px;top:25px;bottom:auto;width:auto;height:2px}
@@ -223,7 +243,6 @@ input:focus,textarea:focus{outline:3px solid rgba(214,58,37,.35);outline-offset:
 <!--SPRITE-->
 
 
-<div class="demo" role="note"><span class="d-s">Макет сайта. Создан {{AUTHOR}}</span><span class="d-l">Макет сайта. Создан {{AUTHOR}}</span></div>
 
 <main id="top">
 <section class="hero" <!--LQ:hero-->>
@@ -233,7 +252,7 @@ input:focus,textarea:focus{outline:3px solid rgba(214,58,37,.35);outline-offset:
     <a class="wa-ico" href="https://api.whatsapp.com/send?phone=__PHONE__" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg class="i"><use href="#whatsapp-logo"/></svg></a>
   </div>
 </header>
-  <picture><source media="(min-width:860px)" srcset="img/hero-1400.webp"><img src="img/hero-750.webp" srcset="img/hero-480.webp 480w, img/hero-750.webp 750w, img/hero-1000.webp 1000w" sizes="100vw" alt="{{ALT_HERO}}" fetchpriority="high" decoding="async" width="1000" height="1334"></picture>
+  <picture><source media="(min-width:860px)" srcset="img/hero-wide-1280.webp 1280w, img/hero-wide-1600.webp 1600w" sizes="100vw"><img src="img/hero-750.webp" srcset="img/hero-480.webp 480w, img/hero-750.webp 750w, img/hero-900.webp 900w" sizes="100vw" alt="{{ALT_HERO}}" fetchpriority="high" decoding="async" width="900" height="1600"></picture>
   <div class="wrap">
     <h1>{{H1_HTML}}</h1>
     <p>{{HERO_SUB}}</p>
@@ -241,6 +260,12 @@ input:focus,textarea:focus{outline:3px solid rgba(214,58,37,.35);outline-offset:
       <a class="btn btn-acc" href="#order">Рассчитать стоимость</a>
       <a class="btn btn-ghost" href="#menu">Смотреть меню</a>
     </div>
+  </div>
+</section>
+
+<section class="stats" aria-label="Коротко о нас">
+  <div class="wrap">
+    {{STATS}}
   </div>
 </section>
 
@@ -266,11 +291,20 @@ input:focus,textarea:focus{outline:3px solid rgba(214,58,37,.35);outline-offset:
 <section class="menu" id="menu">
   <div class="wrap">
     <h2 class="rv">Меню</h2>
-    <p class="lead rv">Нажмите на плюс у позиций, которые хотите видеть на столе. Они попадут в заявку, окончательный набор согласуем в WhatsApp.</p>
+    <p class="lead rv">Нажмите на плюс у позиций, которые хотите видеть на столе. Они попадут в заявку, окончательный набор согласуем в WhatsApp. Фото блюда открывается крупно по нажатию.</p>
     <div class="mb" <!--LQ:banner-->><img src="img/banner-960.webp" srcset="img/banner-480.webp 480w, img/banner-960.webp 960w" sizes="(min-width:860px) 1056px, 100vw" alt="{{ALT_BANNER}}" width="960" height="480" loading="lazy" decoding="async"></div>
     <div class="tabs" role="group" id="tabs" aria-label="Разделы меню"></div>
     <ul class="dishes" id="dishes"></ul>
-    <p class="menu-note">Нужной позиции нет в списке? Напишите в комментарии к заявке.</p>
+    <p class="menu-note">Минимальный заказ от 10 штук. Нужной позиции нет в списке? Напишите в комментарии к заявке.</p>
+  </div>
+</section>
+
+<section id="svc">
+  <div class="wrap">
+    <h2 class="rv">Что мы организуем</h2>
+    <ul class="svc rv">
+{{SERVICES}}
+    </ul>
   </div>
 </section>
 
@@ -279,13 +313,23 @@ input:focus,textarea:focus{outline:3px solid rgba(214,58,37,.35);outline-offset:
     <h2 class="rv">{{GALLERY_TITLE}}</h2>
     <p class="lead rv">{{GALLERY_LEAD}}</p>
     <div class="shots rv">
-      <figure <!--LQ:table-->><img src="img/table-1200.webp" srcset="img/table-480.webp 480w, img/table-800.webp 800w, img/table-1200.webp 1200w" sizes="(min-width:860px) 560px, 100vw" alt="{{ALT_G0}}" loading="lazy" decoding="async" width="1200" height="800"></figure>
-      <figure <!--LQ:g-hall-->><img src="img/g-hall-600.webp" srcset="img/g-hall-360.webp 360w, img/g-hall-600.webp 600w" sizes="(min-width:860px) 280px, 50vw" alt="{{ALT_G1}}" loading="lazy" decoding="async" width="600" height="450"></figure>
-      <figure <!--LQ:g-canape-->><img src="img/g-canape-600.webp" srcset="img/g-canape-360.webp 360w, img/g-canape-600.webp 600w" sizes="(min-width:860px) 280px, 50vw" alt="{{ALT_G2}}" loading="lazy" decoding="async" width="600" height="450"></figure>
-      <figure <!--LQ:g-fetamelon-->><img src="img/g-fetamelon-600.webp" srcset="img/g-fetamelon-360.webp 360w, img/g-fetamelon-600.webp 600w" sizes="(min-width:860px) 280px, 50vw" alt="{{ALT_G3}}" loading="lazy" decoding="async" width="600" height="800"></figure>
-      <figure <!--LQ:g-stand-->><img src="img/g-stand-600.webp" srcset="img/g-stand-360.webp 360w, img/g-stand-600.webp 600w" sizes="(min-width:860px) 280px, 50vw" alt="{{ALT_G4}}" loading="lazy" decoding="async" width="600" height="450"></figure>
+{{GALLERY}}
     </div>
-    <p class="shots-note rv">{{GALLERY_NOTE}}</p>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <figure class="rv" <!--LQ:about-->><img src="img/about-800.webp" srcset="img/about-480.webp 480w, img/about-800.webp 800w" sizes="(min-width:860px) 420px, 100vw" alt="Логотип Furshet Day: халал продукты, фуршеты под ключ, от 15 до 100 гостей" loading="lazy" decoding="async" width="800" height="800"></figure>
+    <div>
+      <h2 class="rv">О Furshet Day</h2>
+      <p class="rv">{{ABOUT_P1}}</p>
+      <p class="rv">{{ABOUT_P2}}</p>
+      <div class="soc rv">
+        <a class="ig" href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener"><svg class="i"><use href="#instagram-logo"/></svg>Отзывы и фото работ в Instagram</a>
+        <a class="ig" href="{{TIKTOK_URL}}" target="_blank" rel="noopener"><svg class="i"><use href="#tiktok-logo"/></svg>Видео в TikTok</a>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -295,8 +339,8 @@ input:focus,textarea:focus{outline:3px solid rgba(214,58,37,.35);outline-offset:
     <ol class="steps">
       <li class="rv"><div class="ic"><svg class="i"><use href="#calendar-blank"/></svg></div><div><h3>Вы оставляете заявку</h3><p>Дата, число гостей, формат и пожелания. Это пара минут.</p></div></li>
       <li class="rv"><div class="ic"><svg class="i"><use href="#whatsapp-logo"/></svg></div><div><h3>Повар пишет вам в WhatsApp</h3><p>Уточняет детали и называет стоимость.</p></div></li>
-      <li class="rv"><div class="ic"><svg class="i"><use href="#fork-knife"/></svg></div><div><h3>Согласуете меню</h3><p>Меню собираем под ваш повод и число гостей.</p></div></li>
-      <li class="rv"><div class="ic"><svg class="i"><use href="#bell-simple"/></svg></div><div><h3>Готовим и накрываем стол</h3><p>Закупку продуктов, готовку и подачу берём на себя.</p></div></li>
+      <li class="rv"><div class="ic"><svg class="i"><use href="#fork-knife"/></svg></div><div><h3>Согласуете меню и оплату</h3><p>Меню собираем под ваш повод. Работаем по предоплате 100%.</p></div></li>
+      <li class="rv"><div class="ic"><svg class="i"><use href="#truck"/></svg></div><div><h3>Привозим и оформляем стол</h3><p>Готовим к вашей дате, привозим и сервируем фуршет на месте.</p></div></li>
     </ol>
   </div>
 </section>
@@ -331,7 +375,7 @@ input:focus,textarea:focus{outline:3px solid rgba(214,58,37,.35);outline-offset:
           <input id="fGuests" type="text" inputmode="numeric" value="{{MIN_GUESTS}}" aria-label="Число гостей">
           <button type="button" id="gPlus" aria-label="Больше гостей"><svg class="i"><use href="#plus"/></svg></button>
         </div>
-        <span class="help" id="gHelp">Примерное число, точное можно уточнить позже</span>
+        <span class="help" id="gHelp">Фуршеты на 15-100 гостей. Если у вас меньше или больше, напишите в комментарии.</span>
       </div>
       <div class="field">
         <span class="lab" id="fl">Формат</span>
@@ -343,8 +387,8 @@ input:focus,textarea:focus{outline:3px solid rgba(214,58,37,.35);outline-offset:
       </div>
       <div class="field">
         <span class="lab">Дополнительно</span>
-        <label class="chk"><input type="checkbox" id="fWait"><div><b>Нужна аренда посуды</b><span>Добавим в расчёт</span></div></label>
-        <label class="chk"><input type="checkbox" id="fWash"><div><b>Нужен выездной шеф-повар</b><span>Добавим в расчёт</span></div></label>
+        <label class="chk"><input type="checkbox" id="fWait"><div><b>Нужно обслуживание персоналом</b><span>Добавим в расчёт</span></div></label>
+        <label class="chk"><input type="checkbox" id="fWash"><div><b>Нужна уборка после фуршета</b><span>Добавим в расчёт</span></div></label>
       </div>
       <div class="field">
         <span class="lab">Выбрано из меню</span>
@@ -372,6 +416,8 @@ input:focus,textarea:focus{outline:3px solid rgba(214,58,37,.35);outline-offset:
     <div class="cont">
       <a href="tel:+{{PHONE_OWNER}}"><svg class="i"><use href="#phone"/></svg>{{PHONE_OWNER_PRETTY}}</a>
       <a href="https://api.whatsapp.com/send?phone=__PHONE__" target="_blank" rel="noopener"><svg class="i"><use href="#whatsapp-logo"/></svg>Написать в WhatsApp</a>
+      <a href="{{INSTAGRAM_URL}}" target="_blank" rel="noopener"><svg class="i"><use href="#instagram-logo"/></svg>{{INSTAGRAM_HANDLE}}</a>
+      <a href="{{TIKTOK_URL}}" target="_blank" rel="noopener"><svg class="i"><use href="#tiktok-logo"/></svg>TikTok</a>
       <a href="#top" style="pointer-events:none"><svg class="i"><use href="#map-pin"/></svg>{{AREA_LABEL}}</a>
     </div>
   </div>
@@ -382,12 +428,14 @@ input:focus,textarea:focus{outline:3px solid rgba(214,58,37,.35);outline-offset:
   <a class="btn btn-acc" href="#order">Рассчитать стоимость</a>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
+<dialog id="lb"><img id="lbImg" alt=""><div class="lbr"><p id="lbCap"></p><button type="button" id="lbX">Закрыть</button></div></dialog>
 
 <script>
 const PHONE = "__PHONE__";  // куда уходят заявки (подставляет build.py)
 const MENU = {{MENU_JSON}};
 const FORMATS = {{FORMATS_JSON}};
 const MIN_GUESTS = {{MIN_GUESTS}};
+const IMG = "__CDN__img/";
 
 const $ = s => document.querySelector(s);
 const ICON = id => `<svg class="i"><use href="#${id}"/></svg>`;
@@ -403,8 +451,9 @@ function renderTabs() {
 }
 function renderDishes() {
   const c = MENU.find(x => x.id === tab);
-  $("#dishes").innerHTML = c.items.map(([n, d]) => `
+  $("#dishes").innerHTML = c.items.map(([n, d, p]) => `
     <li class="dish">
+      ${p ? `<button class="ph" type="button" data-p="${p}" data-n="${n.replace(/"/g, "&quot;")}" aria-label="Фото крупно: ${n.replace(/"/g, "&quot;")}"><img src="${IMG}d-${p}-160.webp" srcset="${IMG}d-${p}-320.webp 2x" alt="" loading="lazy" decoding="async" width="72" height="72"></button>` : ""}
       <div class="t"><div class="n">${n}</div>${d ? `<div class="d">${d}</div>` : ""}</div>
       <button class="add" type="button" data-n="${n.replace(/"/g, "&quot;")}" aria-pressed="${picked.has(n)}" aria-label="${picked.has(n) ? "Убрать из заявки" : "Добавить в заявку"}: ${n.replace(/"/g, "&quot;")}">${ICON("plus").replace('class="i"', 'class="i pl"')}${ICON("check").replace('class="i"', 'class="i ck"')}</button>
     </li>`).join("");
@@ -415,6 +464,8 @@ $("#tabs").addEventListener("click", e => {
   $("#tabs").querySelector('[aria-pressed=true]').scrollIntoView({ inline: "center", block: "nearest", behavior: "smooth" });
 });
 $("#dishes").addEventListener("click", e => {
+  const ph = e.target.closest(".ph");
+  if (ph) { $("#lbImg").src = `${IMG}d-${ph.dataset.p}-big.webp`; $("#lbImg").alt = ph.dataset.n; $("#lbCap").textContent = ph.dataset.n; $("#lb").showModal(); return; }
   const b = e.target.closest(".add"); if (!b) return;
   const n = b.dataset.n;
   picked.has(n) ? picked.delete(n) : picked.add(n);
@@ -456,9 +507,9 @@ function orderText() {
   L.push(`Гостей: ${guests}`);
   if (format) L.push(`Формат: ${format}`);
   if (place) L.push(`Место: ${place}`);
-  L.push(`Аренда посуды: ${$("#fWait").checked ? "нужна" : "не нужна"}`);
-  L.push(`Выездной шеф-повар: ${$("#fWash").checked ? "нужен" : "не нужен"}`);
-  if (dishes.length) L.push("", `*Из меню (${dishes.length}):*`, ...dishes.map((d, i) => `${i + 1}) ${d}`)); else L.push("Меню: пока не выбрано, хочу обсудить");
+  L.push(`Обслуживание персоналом: ${$("#fWait").checked ? "нужно" : "не нужно"}`);
+  L.push(`Уборка после фуршета: ${$("#fWash").checked ? "нужна" : "не нужна"}`);
+  if (dishes.length) MENU.forEach(c => { const p = c.items.filter(i => picked.has(i[0])); if (p.length) L.push("", `*${c.title}:*`, ...p.map((i, k) => `${k + 1}) ${i[0]}`)); }); else L.push("Меню: пока не выбрано, хочу обсудить");
   if (note) L.push(`Комментарий: ${note}`);
   L.push("", "Прошу рассчитать стоимость.");
   return L.join("\n");
@@ -502,7 +553,7 @@ document.querySelectorAll(".rv").forEach(el => io.observe(el));
 
 /* hero height is fixed once per width: mobile browser toolbars collapsing on scroll must not resize the photo */
 { const hero = document.querySelector(".hero"); let lw = innerWidth;
-  const setH = () => hero.style.setProperty("--hh", Math.max(460, innerHeight - 40) + "px");
+  const setH = () => hero.style.setProperty("--hh", Math.max(460, innerHeight) + "px");
   setH(); addEventListener("resize", () => { if (innerWidth !== lw) { lw = innerWidth; setH(); } }); }
 
 /* if the CDN is unreachable, fall back to the files next to the page */
@@ -512,6 +563,7 @@ document.addEventListener("error", e => {
   i.src = i.src.replace(/^https:\/\/cdn\.jsdelivr\.net\/gh\/[^/]+\/[^/]+@[^/]+\//, "");
 }, true);
 
+$("#lb").addEventListener("click", () => $("#lb").close());
 renderTabs(); renderDishes(); refresh();
 </script>
 </body>
