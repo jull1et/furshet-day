@@ -14,7 +14,7 @@ phone = C['phone_author'] if DEMO else C['phone_owner']
 src = open('index.tpl.html', encoding='utf-8').read()
 
 # повторяющиеся блоки из site.json
-stats = ''.join(f'    <div class="stat rv"><b>{s["num"]}</b><span>{s["label"]}</span></div>\n' for s in C['stats']).rstrip('\n')
+stats = ''.join(f'    <div class="stat rv"><svg class="i"><use href="#{s["icon"]}"/></svg><div><b>{s["num"]}</b><span>{s["label"]}</span></div></div>\n' for s in C['stats']).rstrip('\n')
 included = '\n'.join(f'        <li><div class="ic"><svg class="i"><use href="#{i["icon"]}"/></svg></div><div><strong>{i["title"]}</strong><span>{i["text"]}</span></div></li>' for i in C['included'])
 extras = '\n'.join(f'          <li><svg class="i"><use href="#{e["icon"]}"/></svg>{e["label"]}</li>' for e in C['extras'])
 tokens = {
@@ -32,8 +32,10 @@ for i, a in enumerate(C['alt_gallery']): tokens[f'ALT_G{i}'] = a
 tokens['SERVICES'] = '\n'.join(f'      <li><b>{t}</b>' + (f'<span>{d}</span>' if d else '') + '</li>' for t, d in C['services'])
 gal = []
 for i, alt in enumerate(C['alt_gallery'], 1):
-    if i == 1: gal.append(f'      <figure <!--LQ:g1-->><img src="img/g1-1200.webp" srcset="img/g1-480.webp 480w, img/g1-800.webp 800w, img/g1-1200.webp 1200w" sizes="(min-width:860px) 560px, 100vw" alt="{alt}" loading="lazy" decoding="async" width="1200" height="1600"></figure>')
-    else: gal.append(f'      <figure <!--LQ:g{i}-->><img src="img/g{i}-600.webp" srcset="img/g{i}-360.webp 360w, img/g{i}-600.webp 600w" sizes="(min-width:860px) 280px, 50vw" alt="{alt}" loading="lazy" decoding="async" width="600" height="600"></figure>')
+    if i == 1: ws, sz, wh = (480, 800, 1200), '(min-width:860px) 560px, 100vw', 'width="1200" height="1600"'
+    else: ws, sz, wh = (360, 600), '(min-width:860px) 280px, 50vw', 'width="600" height="600"'
+    ss = lambda ext: ', '.join(f'img/g{i}-{w}.{ext} {w}w' for w in ws)
+    gal.append(f'      <figure <!--LQ:g{i}-->><picture><source type="image/avif" srcset="{ss("avif")}" sizes="{sz}"><img src="img/g{i}-{ws[-1]}.webp" srcset="{ss("webp")}" sizes="{sz}" alt="{alt}" loading="lazy" decoding="async" {wh}></picture></figure>')
 tokens['GALLERY'] = '\n'.join(gal)
 tokens.update({'ABOUT_P1': C['about_p1'], 'ABOUT_P2': C['about_p2'], 'TIKTOK_URL': C['tiktok_url']})
 for k, v in tokens.items(): src = src.replace('{{' + k + '}}', v)
@@ -64,7 +66,7 @@ sha = os.environ.get('CDN_SHA') or sh('git', 'log', '-1', '--format=%H', '--', '
 dirty = sh('git', 'status', '--porcelain', 'img', 'fonts')
 CDN = f'https://cdn.jsdelivr.net/gh/{C["repo"]}@{sha}/' if sha and (os.environ.get('CDN_SHA') or not dirty) else ''
 out = out.replace('__CDN__', CDN)
-if CDN: out = re.sub(r'(?<![\w/.@-])img/(?=[a-z0-9-]+\.webp)', CDN + 'img/', out)
+if CDN: out = re.sub(r'(?<![\w/.@-])img/(?=[a-z0-9-]+\.(?:webp|avif))', CDN + 'img/', out)
 
 out = out.replace('__PHONE__', phone).replace('__SRC__', 'макета сайта' if DEMO else 'сайта')
 if DEMO:

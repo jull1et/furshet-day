@@ -17,22 +17,22 @@
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 32 32%27%3E%3Crect width=%2732%27 height=%2732%27 rx=%278%27 fill=%27%237a1f2e%27/%3E%3C/svg%3E">
 <!--ROBOTS-->
-<link rel="preload" as="image" media="(max-width:859px)" imagesrcset="img/hero-480.webp 480w, img/hero-750.webp 750w, img/hero-900.webp 900w" imagesizes="100vw" fetchpriority="high">
-<link rel="preload" as="image" media="(min-width:860px)" imagesrcset="img/hero-wide-1280.webp 1280w, img/hero-wide-1600.webp 1600w" imagesizes="100vw" fetchpriority="high">
+<link rel="preload" as="image" type="image/avif" imagesrcset="img/hero-480.avif 480w, img/hero-750.avif 750w, img/hero-900.avif 900w" imagesizes="(min-width:860px) 50vw, 100vw" fetchpriority="high">
 <link rel="preload" href="__CDN__fonts/onest-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="__CDN__fonts/unbounded-cyrillic.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="__CDN__fonts/cormorant-cyrillic-700-normal.woff2" as="font" type="font/woff2" crossorigin>
 <style>
 @font-face{font-family:"Onest";font-weight:400 800;font-style:normal;font-display:swap;src:url(__CDN__fonts/onest-cyrillic.woff2) format("woff2"),url(fonts/onest-cyrillic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
 @font-face{font-family:"Onest";font-weight:400 800;font-style:normal;font-display:swap;src:url(__CDN__fonts/onest-latin.woff2) format("woff2"),url(fonts/onest-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
-@font-face{font-family:"Unbounded";font-weight:500 800;font-style:normal;font-display:swap;src:url(__CDN__fonts/unbounded-cyrillic.woff2) format("woff2"),url(fonts/unbounded-cyrillic.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
-@font-face{font-family:"Unbounded";font-weight:500 800;font-style:normal;font-display:swap;src:url(__CDN__fonts/unbounded-latin.woff2) format("woff2"),url(fonts/unbounded-latin.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Cormorant Garamond";font-weight:700;font-style:normal;font-display:swap;src:url(__CDN__fonts/cormorant-cyrillic-700-normal.woff2) format("woff2"),url(fonts/cormorant-cyrillic-700-normal.woff2) format("woff2");unicode-range:U+0301,U+0400-045F,U+0490-0491,U+04B0-04B1,U+2116}
+@font-face{font-family:"Cormorant Garamond";font-weight:700;font-style:normal;font-display:swap;src:url(__CDN__fonts/cormorant-latin-700-normal.woff2) format("woff2"),url(fonts/cormorant-latin-700-normal.woff2) format("woff2");unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:"Cormorant Garamond";font-weight:600;font-style:italic;font-display:swap;src:url(__CDN__fonts/cormorant-latin-600-italic.woff2) format("woff2"),url(fonts/cormorant-latin-600-italic.woff2) format("woff2");unicode-range:U+0000-00FF}
 :root{
   /* Milk ivory + wine + ink. One accent, one theme (light). */
   --bg:#faf6ef; --tint:#f2e9de; --card:#fffdf9;
   --ink:#2b1d1f; --muted:#6f6062; --line:rgba(43,29,31,.13); --line2:rgba(43,29,31,.28);
   --acc:#7a1f2e; --acc-hi:#621726; --on-acc:#ffffff; --err:#b3261e;
   --r:14px; --pad:20px;
-  --disp:"Unbounded","Onest",system-ui,sans-serif;
+  --disp:"Cormorant Garamond",Georgia,"Times New Roman",serif; --pill:999px;
   color-scheme:light;
 }
 *{box-sizing:border-box;margin:0;padding:0}
@@ -44,53 +44,60 @@ button,input,textarea{font:inherit;color:inherit}
 a{color:inherit}
 .i{width:1.25em;height:1.25em;fill:currentColor;flex:none}
 .wrap{width:100%;max-width:1120px;margin:0 auto;padding:0 var(--pad)}
-h1,h2,h3{font-family:var(--disp);font-weight:700;letter-spacing:-.025em;line-height:1.1}
-h2{font-size:clamp(25px,6.2vw,42px)}
+h1,h2{font-family:var(--disp);font-weight:700;letter-spacing:-.01em;line-height:1.02;color:var(--acc)}
+h3{font-weight:700;letter-spacing:-.01em;line-height:1.2}
+h2{font-size:clamp(34px,8.6vw,56px)}
 .lead{color:var(--muted);max-width:56ch;margin-top:14px}
 section{padding:68px 0}
 :focus-visible{outline:3px solid var(--acc);outline-offset:3px}
 
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 26px;border-radius:var(--r);border:1px solid transparent;font-weight:600;text-decoration:none;cursor:pointer;white-space:nowrap;transition:transform .18s cubic-bezier(.16,1,.3,1),background .2s,border-color .2s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:54px;padding:0 28px;border-radius:var(--pill);border:1px solid transparent;font-weight:600;text-decoration:none;cursor:pointer;white-space:nowrap;transition:transform .18s cubic-bezier(.16,1,.3,1),background .2s,border-color .2s}
 .btn:active{transform:scale(.98) translateY(1px)}
 .btn-acc{background:var(--acc);color:var(--on-acc)}
 .btn-acc:hover{background:var(--acc-hi)}
-.btn-ghost{border-color:rgba(255,255,255,.55);background:rgba(36,29,30,.28);color:#fff;backdrop-filter:blur(8px)}
-.btn-ghost:hover{border-color:#fff}
+.lnk{display:inline-flex;align-items:center;gap:8px;min-height:54px;padding:0 6px;font-weight:600;color:var(--acc);text-decoration:none}
+.lnk .i{width:20px;height:20px;transition:transform .25s cubic-bezier(.16,1,.3,1)}
+.lnk:hover .i{transform:translateX(4px)}
 
 /* header + hero (text over photo is always white, scrim guarantees contrast) */
 .top{position:absolute;inset:0 0 auto 0;z-index:5;padding:max(14px,env(safe-area-inset-top)) 0 0;color:#fff}
 .top .wrap{display:flex;align-items:center;justify-content:space-between}
-.logo{font-family:var(--disp);font-weight:700;letter-spacing:-.02em;font-size:15px;text-decoration:none;line-height:1.15}
+.logo{font-family:var(--disp);font-weight:700;letter-spacing:.01em;font-size:22px;text-decoration:none;line-height:1}
+.logo em{font-style:italic;font-weight:600}
 .logo small{display:block;font-family:"Onest",sans-serif;font-weight:500;font-size:13px;opacity:.85;letter-spacing:0;margin-top:3px}
-.wa-ico{display:grid;place-items:center;width:48px;height:48px;border-radius:var(--r);border:1px solid rgba(255,255,255,.5);background:rgba(36,29,30,.3);backdrop-filter:blur(8px);color:#fff}
-.hero{background-size:cover;background-position:50% 32%;position:relative;min-height:var(--hh,100svh);display:flex;align-items:flex-end;padding:96px 0 44px;isolation:isolate;color:#fff}
-.hero picture{position:absolute;inset:0;z-index:-2;overflow:hidden}
-.hero picture img{width:100%;height:100%;object-fit:cover;object-position:50% 32%}
-.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(36,20,18,.55) 0%,rgba(36,20,18,.05) 26%,rgba(36,20,18,.55) 58%,rgba(24,14,13,.92) 100%)}
-.hero h1{font-size:clamp(30px,8.4vw,68px);max-width:15ch;line-height:1.06}
-.hero p{margin-top:18px;max-width:34ch;font-size:18px;color:rgba(255,255,255,.92)}
-.hero .acts{display:flex;flex-wrap:wrap;gap:12px;margin-top:28px}
+.wa-ico{display:grid;place-items:center;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.5);background:rgba(36,29,30,.3);backdrop-filter:blur(8px);color:#fff}
+.hero{position:relative;padding:0;background:var(--bg)}
+.hero picture{position:relative;display:block;height:max(270px,42svh);overflow:hidden;background:var(--tint) center/cover}
+.hero picture img{width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.hero picture::after{content:"";position:absolute;inset:0 0 auto 0;height:45%;background:linear-gradient(180deg,rgba(30,14,18,.6),rgba(30,14,18,0))}
+.hero .copy-h{padding-top:22px;padding-bottom:36px}
+.hero h1{font-size:clamp(35px,9.6vw,72px);max-width:13ch}
+.hero p{margin-top:14px;max-width:36ch;font-size:17px;color:var(--muted)}
+.hero .acts{display:flex;flex-wrap:wrap;align-items:center;gap:6px 14px;margin-top:22px}
 
 /* stats band */
 .stats{padding:0;background:var(--acc);color:var(--on-acc)}
-.stats .wrap{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding-block:30px}
-.stat b{display:block;font-family:var(--disp);font-size:clamp(21px,5.8vw,42px);font-weight:700;letter-spacing:-.03em;line-height:1}
-.stat span{display:block;margin-top:10px;font-size:14.5px;line-height:1.3;opacity:.95}
+.stats .wrap{display:grid;padding-block:6px}
+.stat{display:flex;align-items:center;gap:16px;padding:18px 0}
+.stat+.stat{border-top:1px solid rgba(255,255,255,.16)}
+.stat .i{width:34px;height:34px;flex:none;color:#f0c6cd}
+.stat b{display:block;font-family:var(--disp);font-size:24px;font-weight:700;line-height:1.05}
+.stat span{display:block;margin-top:4px;font-size:14.5px;line-height:1.35;opacity:.86}
 
 /* included */
 .incl-grid{display:grid;gap:22px;margin-top:34px}
 .incl{list-style:none;display:grid;gap:14px}
 .incl li{display:flex;gap:16px;align-items:flex-start;padding:18px;background:var(--card);border:1px solid var(--line);border-radius:var(--r)}
-.incl .ic{width:48px;height:48px;border-radius:var(--r);background:var(--tint);color:var(--acc);display:grid;place-items:center;flex:none}
+.incl .ic{width:48px;height:48px;border-radius:50%;background:var(--tint);color:var(--acc);display:grid;place-items:center;flex:none}
 .incl .ic .i{width:26px;height:26px}
 .incl strong{display:block;font-weight:700;line-height:1.25}
 .incl span{color:var(--muted);font-size:15.5px;display:block;margin-top:3px}
-.extra{background:var(--ink);color:#fff;border-radius:var(--r);padding:26px;align-self:start}
+.extra{background:var(--acc);color:#fff;border-radius:var(--r);padding:26px;align-self:start}
 .extra h3{font-size:20px}
 .extra p{color:rgba(255,255,255,.78);margin-top:10px;font-size:15.5px}
 .extra ul{list-style:none;margin-top:18px;display:grid;gap:12px}
-.extra li{display:flex;align-items:center;gap:12px;font-weight:600;padding:14px;border:1px solid rgba(255,255,255,.2);border-radius:var(--r)}
-.extra .i{color:#e7b3bc;width:24px;height:24px}
+.extra li{display:flex;align-items:center;gap:12px;font-weight:600;padding:12px 16px;border:1px solid rgba(255,255,255,.24);border-radius:var(--r)}
+.extra .i{color:#f0c6cd;width:24px;height:24px}
 
 /* menu */
 .menu{background:var(--tint)}
@@ -98,23 +105,24 @@ section{padding:68px 0}
 .mb img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .tabs{display:flex;gap:8px;margin-top:16px;overflow-x:auto;scrollbar-width:none;padding-bottom:4px}
 .tabs::-webkit-scrollbar{display:none}
-.tab{min-height:48px;padding:0 20px;border-radius:var(--r);border:1px solid var(--line2);background:transparent;font-weight:600;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
-.tab[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.tab{min-height:46px;padding:0 20px;border-radius:var(--pill);border:1px solid var(--line2);background:transparent;font-weight:600;cursor:pointer;white-space:nowrap;display:inline-flex;align-items:center;gap:8px}
+.tab[aria-pressed=true]{background:var(--acc);color:#fff;border-color:var(--acc)}
 .tab small{font-weight:500;opacity:.75}
 .dishes{list-style:none;margin-top:10px;display:grid;grid-template-columns:1fr;column-gap:36px}
 .dish{display:flex;align-items:center;gap:14px;padding:15px 0;border-bottom:1px solid var(--line)}
 .dish .t{flex:1;min-width:0}
 .dish .n{font-weight:600;line-height:1.25}
 .dish .d{color:var(--muted);font-size:14.5px;line-height:1.35;margin-top:3px}
-.add{width:48px;height:48px;flex:none;border-radius:var(--r);border:1px solid var(--line2);background:var(--card);display:grid;place-items:center;cursor:pointer;transition:background .2s,transform .15s}
+.add{width:46px;height:46px;flex:none;border-radius:50%;border:1px solid var(--line2);background:var(--card);display:grid;place-items:center;cursor:pointer;transition:background .2s,transform .15s}
 .add:active{transform:scale(.94)}
-.add[aria-pressed=true]{background:var(--ink);border-color:var(--ink);color:#fff}
-.add:hover{border-color:var(--ink)}
+.add[aria-pressed=true]{background:var(--acc);border-color:var(--acc);color:#fff}
+.add:hover{border-color:var(--acc)}
 .add .i{width:22px;height:22px}
 .add .ck{display:none}.add[aria-pressed=true] .pl{display:none}.add[aria-pressed=true] .ck{display:block}
 .menu-note{margin-top:22px;color:var(--muted);font-size:15px}
 .dish .ph{width:72px;height:72px;flex:none;border-radius:12px;overflow:hidden;border:0;padding:0;cursor:zoom-in;background:#e6d8c8}
 .dish .ph img{width:100%;height:100%;object-fit:cover;display:block}
+.dish .ph picture,.shots picture,.about figure picture{display:block;width:100%;height:100%}
 #lb{border:0;padding:0;background:transparent;margin:auto;max-width:min(92vw,720px);overflow:visible}
 #lb::backdrop{background:rgba(24,12,14,.82)}
 #lb img{display:block;max-width:100%;max-height:76vh;border-radius:var(--r);background:var(--tint)}
@@ -146,7 +154,8 @@ section{padding:68px 0}
 .steps{list-style:none;margin-top:34px;display:grid;gap:0;position:relative}
 .steps li{display:grid;grid-template-columns:52px 1fr;gap:16px;padding-bottom:30px;position:relative}
 .steps li:not(:last-child)::before{content:"";position:absolute;left:25px;top:56px;bottom:4px;width:2px;background:var(--line)}
-.steps .ic{width:52px;height:52px;border-radius:var(--r);background:var(--acc);display:grid;place-items:center;color:var(--on-acc)}
+.steps .ic{width:52px;height:52px;border-radius:50%;background:var(--tint);border:1px solid rgba(122,31,46,.25);display:grid;place-items:center;color:var(--acc)}
+.steps .ic .i{width:26px;height:26px}
 .steps h3{font-size:16.5px;letter-spacing:-.01em;line-height:1.25;padding-top:4px}
 .steps p{color:var(--muted);font-size:15.5px;margin-top:6px}
 
@@ -172,11 +181,11 @@ input:focus,textarea:focus{outline:3px solid rgba(122,31,46,.3);outline-offset:0
 .err{border-color:var(--err)!important}
 .errt{color:var(--err);font-size:14px}
 .step{display:flex;align-items:center;gap:8px}
-.step button{width:52px;height:52px;border-radius:var(--r);border:1px solid var(--line2);background:#fff;cursor:pointer;display:grid;place-items:center}
+.step button{width:52px;height:52px;border-radius:50%;border:1px solid var(--line2);background:#fff;cursor:pointer;display:grid;place-items:center}
 .step input{text-align:center;font-weight:700;font-size:20px;min-height:52px;width:92px;border-radius:var(--r);border:1px solid var(--line2);background:#fff}
 .chips{display:flex;flex-wrap:wrap;gap:8px}
-.chip{min-height:48px;padding:0 16px;border-radius:var(--r);border:1px solid var(--line2);background:#fff;cursor:pointer;font-weight:500}
-.chip[aria-pressed=true]{background:var(--ink);color:#fff;border-color:var(--ink);font-weight:600}
+.chip{min-height:46px;padding:0 18px;border-radius:var(--pill);border:1px solid var(--line2);background:#fff;cursor:pointer;font-weight:500}
+.chip[aria-pressed=true]{background:var(--acc);color:#fff;border-color:var(--acc);font-weight:600}
 .chk{display:flex;align-items:flex-start;gap:12px;padding:14px;border:1px solid var(--line2);border-radius:var(--r);cursor:pointer;background:#fff}
 .chk input{width:22px;height:22px;margin-top:2px;accent-color:var(--acc);flex:none}
 .chk b{display:block;font-weight:600}
@@ -185,7 +194,7 @@ input:focus,textarea:focus{outline:3px solid rgba(122,31,46,.3);outline-offset:0
 .picked b{color:var(--ink)}
 .send{width:100%;margin-top:6px}
 .fine{color:var(--muted);font-size:14px;margin-top:14px}
-.copy{width:100%;margin-top:10px;background:#fff;border:1px solid var(--line2);color:var(--ink);min-height:48px;border-radius:var(--r);cursor:pointer;font-weight:500}
+.copy{width:100%;margin-top:10px;background:#fff;border:1px solid var(--line2);color:var(--ink);min-height:48px;border-radius:var(--pill);cursor:pointer;font-weight:500}
 
 /* footer */
 .foot{padding:52px 0 36px;border-top:1px solid var(--line)}
@@ -218,9 +227,17 @@ input:focus,textarea:focus{outline:3px solid rgba(122,31,46,.3);outline-offset:0
   :root{--pad:32px}
   section{padding:104px 0}
   body{padding-bottom:0}
-  .hero{padding-bottom:80px}
-  .hero picture img{object-position:50% 50%}
+  .hero{display:grid;grid-template-columns:1fr 1fr}
+  .hero{min-height:min(100svh,860px)}
+  .hero picture{order:2;height:auto;min-height:100%}
+  .hero picture img{position:absolute;inset:0}
+  .hero .copy-h{order:1;align-self:center;max-width:none;margin:0;padding:110px 56px 64px max(32px,calc((100vw - 1120px)/2 + 32px))}
+  .hero h1{font-size:clamp(44px,4.2vw,62px);max-width:14ch}
+  .top .logo{color:var(--ink)}
   .incl-grid{grid-template-columns:1.3fr 1fr;gap:48px;align-items:start}
+  .stats .wrap{grid-template-columns:repeat(3,1fr);gap:32px;padding-block:34px}
+  .stat{padding:0;align-items:flex-start}
+  .stat+.stat{border-top:0;border-left:1px solid rgba(255,255,255,.16);padding-left:32px}
   .mb{aspect-ratio:16/6}
   .dishes{grid-template-columns:1fr 1fr}
   .shots{grid-template-columns:repeat(4,1fr);gap:12px}
@@ -245,20 +262,20 @@ input:focus,textarea:focus{outline:3px solid rgba(122,31,46,.3);outline-offset:0
 
 
 <main id="top">
-<section class="hero" <!--LQ:hero-->>
+<section class="hero">
   <header class="top">
   <div class="wrap">
-    <a class="logo" href="#top">{{BRAND}}<small>{{BRAND_SUB}}</small></a>
+    <a class="logo" href="#top">Furshet <em>Day</em><small>{{BRAND_SUB}}</small></a>
     <a class="wa-ico" href="https://api.whatsapp.com/send?phone=__PHONE__" target="_blank" rel="noopener" aria-label="Написать в WhatsApp"><svg class="i"><use href="#whatsapp-logo"/></svg></a>
   </div>
 </header>
-  <picture><source media="(min-width:860px)" srcset="img/hero-wide-1280.webp 1280w, img/hero-wide-1600.webp 1600w" sizes="100vw"><img src="img/hero-750.webp" srcset="img/hero-480.webp 480w, img/hero-750.webp 750w, img/hero-900.webp 900w" sizes="100vw" alt="{{ALT_HERO}}" fetchpriority="high" decoding="async" width="900" height="1600"></picture>
-  <div class="wrap">
+  <picture <!--LQ:hero-->><source type="image/avif" srcset="img/hero-480.avif 480w, img/hero-750.avif 750w, img/hero-900.avif 900w" sizes="(min-width:860px) 50vw, 100vw"><img src="img/hero-750.webp" srcset="img/hero-480.webp 480w, img/hero-750.webp 750w, img/hero-900.webp 900w" sizes="(min-width:860px) 50vw, 100vw" alt="{{ALT_HERO}}" fetchpriority="high" decoding="async" width="900" height="1600"></picture>
+  <div class="wrap copy-h">
     <h1>{{H1_HTML}}</h1>
     <p>{{HERO_SUB}}</p>
     <div class="acts">
       <a class="btn btn-acc" href="#order">Рассчитать стоимость</a>
-      <a class="btn btn-ghost" href="#menu">Смотреть меню</a>
+      <a class="lnk" href="#menu">Смотреть меню<svg class="i"><use href="#arrow-right"/></svg></a>
     </div>
   </div>
 </section>
@@ -292,10 +309,10 @@ input:focus,textarea:focus{outline:3px solid rgba(122,31,46,.3);outline-offset:0
   <div class="wrap">
     <h2 class="rv">Меню</h2>
     <p class="lead rv">Нажмите на плюс у позиций, которые хотите видеть на столе. Они попадут в заявку, окончательный набор согласуем в WhatsApp. Фото блюда открывается крупно по нажатию.</p>
-    <div class="mb" <!--LQ:banner-->><img src="img/banner-960.webp" srcset="img/banner-480.webp 480w, img/banner-960.webp 960w" sizes="(min-width:860px) 1056px, 100vw" alt="{{ALT_BANNER}}" width="960" height="480" loading="lazy" decoding="async"></div>
+    <div class="mb" <!--LQ:banner-->><picture><source type="image/avif" srcset="img/banner-480.avif 480w, img/banner-960.avif 960w" sizes="(min-width:860px) 1056px, 100vw"><img src="img/banner-960.webp" srcset="img/banner-480.webp 480w, img/banner-960.webp 960w" sizes="(min-width:860px) 1056px, 100vw" alt="{{ALT_BANNER}}" width="960" height="480" loading="lazy" decoding="async"></picture></div>
     <div class="tabs" role="group" id="tabs" aria-label="Разделы меню"></div>
     <ul class="dishes" id="dishes"></ul>
-    <p class="menu-note">Минимальный заказ от 10 штук. Нужной позиции нет в списке? Напишите в комментарии к заявке.</p>
+    <p class="menu-note">Минимальный заказ: от 10 штук каждой позиции. Нужной позиции нет в списке? Напишите в комментарии к заявке.</p>
   </div>
 </section>
 
@@ -320,7 +337,7 @@ input:focus,textarea:focus{outline:3px solid rgba(122,31,46,.3);outline-offset:0
 
 <section class="about" id="about">
   <div class="wrap about-grid">
-    <figure class="rv" <!--LQ:about-->><img src="img/about-800.webp" srcset="img/about-480.webp 480w, img/about-800.webp 800w" sizes="(min-width:860px) 420px, 100vw" alt="Логотип Furshet Day: халал продукты, фуршеты под ключ, от 15 до 100 гостей" loading="lazy" decoding="async" width="800" height="800"></figure>
+    <figure class="rv" <!--LQ:about-->><picture><source type="image/avif" srcset="img/about-480.avif 480w, img/about-800.avif 800w" sizes="(min-width:860px) 420px, 100vw"><img src="img/about-800.webp" srcset="img/about-480.webp 480w, img/about-800.webp 800w" sizes="(min-width:860px) 420px, 100vw" alt="Логотип Furshet Day: халал продукты, фуршеты под ключ, от 15 до 100 гостей" loading="lazy" decoding="async" width="800" height="800"></picture></figure>
     <div>
       <h2 class="rv">О Furshet Day</h2>
       <p class="rv">{{ABOUT_P1}}</p>
@@ -337,10 +354,10 @@ input:focus,textarea:focus{outline:3px solid rgba(122,31,46,.3);outline-offset:0
   <div class="wrap">
     <h2 class="rv">Как проходит заказ</h2>
     <ol class="steps">
-      <li class="rv"><div class="ic"><svg class="i"><use href="#calendar-blank"/></svg></div><div><h3>Вы оставляете заявку</h3><p>Дата, число гостей, формат и пожелания. Это пара минут.</p></div></li>
+      <li class="rv"><div class="ic"><svg class="i"><use href="#note-pencil"/></svg></div><div><h3>Вы оставляете заявку</h3><p>Дата, число гостей, формат и пожелания. Это пара минут.</p></div></li>
       <li class="rv"><div class="ic"><svg class="i"><use href="#whatsapp-logo"/></svg></div><div><h3>Повар пишет вам в WhatsApp</h3><p>Уточняет детали и называет стоимость.</p></div></li>
-      <li class="rv"><div class="ic"><svg class="i"><use href="#fork-knife"/></svg></div><div><h3>Согласуете меню и оплату</h3><p>Меню собираем под ваш повод. Работаем по предоплате 100%.</p></div></li>
-      <li class="rv"><div class="ic"><svg class="i"><use href="#truck"/></svg></div><div><h3>Привозим и оформляем стол</h3><p>Готовим к вашей дате, привозим и сервируем фуршет на месте.</p></div></li>
+      <li class="rv"><div class="ic"><svg class="i"><use href="#list-checks"/></svg></div><div><h3>Согласуете меню и оплату</h3><p>Меню собираем под ваш повод. Работаем по предоплате 100%.</p></div></li>
+      <li class="rv"><div class="ic"><svg class="i"><use href="#flower-tulip"/></svg></div><div><h3>Привозим и оформляем стол</h3><p>Готовим к вашей дате, привозим и сервируем фуршет на месте.</p></div></li>
     </ol>
   </div>
 </section>
@@ -428,7 +445,7 @@ input:focus,textarea:focus{outline:3px solid rgba(122,31,46,.3);outline-offset:0
   <a class="btn btn-acc" href="#order">Рассчитать стоимость</a>
 </div>
 <div class="toast" id="toast" role="status" aria-live="polite"></div>
-<dialog id="lb"><img id="lbImg" alt=""><div class="lbr"><p id="lbCap"></p><button type="button" id="lbX">Закрыть</button></div></dialog>
+<dialog id="lb"><picture><source id="lbAvif" type="image/avif"><img id="lbImg" alt=""></picture><div class="lbr"><p id="lbCap"></p><button type="button" id="lbX">Закрыть</button></div></dialog>
 
 <script>
 const PHONE = "__PHONE__";  // куда уходят заявки (подставляет build.py)
@@ -453,7 +470,7 @@ function renderDishes() {
   const c = MENU.find(x => x.id === tab);
   $("#dishes").innerHTML = c.items.map(([n, d, p]) => `
     <li class="dish">
-      ${p ? `<button class="ph" type="button" data-p="${p}" data-n="${n.replace(/"/g, "&quot;")}" aria-label="Фото крупно: ${n.replace(/"/g, "&quot;")}"><img src="${IMG}d-${p}-160.webp" srcset="${IMG}d-${p}-320.webp 2x" alt="" loading="lazy" decoding="async" width="72" height="72"></button>` : ""}
+      ${p ? `<button class="ph" type="button" data-p="${p}" data-n="${n.replace(/"/g, "&quot;")}" aria-label="Фото крупно: ${n.replace(/"/g, "&quot;")}"><picture><source type="image/avif" srcset="${IMG}d-${p}-160.avif 160w, ${IMG}d-${p}-240.avif 240w" sizes="72px"><img src="${IMG}d-${p}-160.webp" srcset="${IMG}d-${p}-160.webp 160w, ${IMG}d-${p}-240.webp 240w" sizes="72px" alt="" loading="lazy" decoding="async" width="72" height="72"></picture></button>` : ""}
       <div class="t"><div class="n">${n}</div>${d ? `<div class="d">${d}</div>` : ""}</div>
       <button class="add" type="button" data-n="${n.replace(/"/g, "&quot;")}" aria-pressed="${picked.has(n)}" aria-label="${picked.has(n) ? "Убрать из заявки" : "Добавить в заявку"}: ${n.replace(/"/g, "&quot;")}">${ICON("plus").replace('class="i"', 'class="i pl"')}${ICON("check").replace('class="i"', 'class="i ck"')}</button>
     </li>`).join("");
@@ -465,7 +482,7 @@ $("#tabs").addEventListener("click", e => {
 });
 $("#dishes").addEventListener("click", e => {
   const ph = e.target.closest(".ph");
-  if (ph) { $("#lbImg").src = `${IMG}d-${ph.dataset.p}-big.webp`; $("#lbImg").alt = ph.dataset.n; $("#lbCap").textContent = ph.dataset.n; $("#lb").showModal(); return; }
+  if (ph) { $("#lbAvif").srcset = `${IMG}d-${ph.dataset.p}-big.avif`; $("#lbImg").src = `${IMG}d-${ph.dataset.p}-big.webp`; $("#lbImg").alt = ph.dataset.n; $("#lbCap").textContent = ph.dataset.n; $("#lb").showModal(); return; }
   const b = e.target.closest(".add"); if (!b) return;
   const n = b.dataset.n;
   picked.has(n) ? picked.delete(n) : picked.add(n);
